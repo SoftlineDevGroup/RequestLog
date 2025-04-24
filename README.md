@@ -36,7 +36,7 @@
      <repository folderName="Base" solutionType="Base" url="" />
      <repository folderName="RX" solutionType="Base" url="<адрес локального репозитория>" />
      <repository folderName="<Папка из п.1>" solutionType="Work" 
-       url="" />
+       url="https://github.com/SoftlineDevGroup/RequestLog" />
    </block>
    ```
 
