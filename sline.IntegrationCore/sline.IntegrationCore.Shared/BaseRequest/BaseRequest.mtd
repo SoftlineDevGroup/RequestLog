@@ -23,6 +23,7 @@
   ],
   "BaseGuid": "04581d26-0780-4cfd-b3cd-c2cafc5798b0",
   "CanBeNavigationPropertyType": true,
+  "CanBeUsedInIntegration": false,
   "Code": "BaseRequest",
   "CreationAreaMetadata": {
     "NameGuid": "f7766750-eee2-4fcd-8003-5c06a90d1f44",
@@ -134,13 +135,13 @@
     "CreatedServer"
   ],
   "IconResourcesKeys": [],
-  "IntegrationServiceName": "SLIntegrationBaseRequest",
   "IsAbstract": true,
   "IsVisible": false,
   "OperationsClass": "",
   "Overridden": [
     "IsVisible",
-    "HideFromCreationArea"
+    "HideFromCreationArea",
+    "CanBeUsedInIntegration"
   ],
   "Properties": [
     {

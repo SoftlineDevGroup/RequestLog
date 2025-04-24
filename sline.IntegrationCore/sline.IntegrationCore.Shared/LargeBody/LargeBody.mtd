@@ -4,6 +4,7 @@
   "Name": "LargeBody",
   "BaseGuid": "04581d26-0780-4cfd-b3cd-c2cafc5798b0",
   "CanBeNavigationPropertyType": true,
+  "CanBeUsedInIntegration": false,
   "Code": "LargeBody",
   "CreationAreaMetadata": {
     "NameGuid": "f7766750-eee2-4fcd-8003-5c06a90d1f44",
@@ -79,7 +80,6 @@
   "HideFromCreationArea": true,
   "HideFromNavigationEditorCreationArea": true,
   "IconResourcesKeys": [],
-  "IntegrationServiceName": "SLIntegrationLargeBody",
   "IsAutoCreated": true,
   "IsVisible": false,
   "NeedWriteHistory": true,
@@ -89,7 +89,8 @@
     "IsVisible",
     "HideFromCreationArea",
     "HideFromNavigationEditorCreationArea",
-    "IsAutoCreated"
+    "IsAutoCreated",
+    "CanBeUsedInIntegration"
   ],
   "Properties": [
     {
