@@ -139,7 +139,8 @@
   "IsVisible": false,
   "OperationsClass": "",
   "Overridden": [
-    "IsVisible"
+    "IsVisible",
+    "HideFromCreationArea"
   ],
   "Properties": [
     {

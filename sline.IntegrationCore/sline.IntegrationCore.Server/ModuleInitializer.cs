@@ -68,13 +68,13 @@ namespace sline.IntegrationCore.Server
       InitializationLogger.Debug("Init: Grant rights on integrations operation to role");
       
       // выдача прав всем пользователям
-      IntegrationCore.BaseRequests.AccessRights.Grant(Roles.AllUsers, DefaultAccessRightsTypes.Read);
+      IntegrationCore.BaseRequests.AccessRights.Grant(Roles.AllUsers, DefaultAccessRightsTypes.Create);
       IntegrationCore.BaseRequests.AccessRights.Save();
       IntegrationCore.ExternalConnections.AccessRights.Grant(Roles.AllUsers, DefaultAccessRightsTypes.Read);
       IntegrationCore.ExternalConnections.AccessRights.Save();
       IntegrationCore.ExternalMethods.AccessRights.Grant(Roles.AllUsers, DefaultAccessRightsTypes.Read);
       IntegrationCore.ExternalMethods.AccessRights.Save();
-      IntegrationCore.LargeBodies.AccessRights.Grant(Roles.AllUsers, DefaultAccessRightsTypes.Read);
+      IntegrationCore.LargeBodies.AccessRights.Grant(Roles.AllUsers, DefaultAccessRightsTypes.Create);
       IntegrationCore.LargeBodies.AccessRights.Save();
       
       var role = Functions.Module.GetIntegrationRole();
