@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <ViewName>Default</ViewName>
+  <Collection0b369f66e2db4a4194626b87d04a5e30 FormGuid="8c4ac2a9-6c76-48f9-9721-c79a123bdab0">
+    <XtraSerializer version="1.0" application="GridControl">
+      <property name="#LayoutVersion" isnull="true" />
+      <property name="$GridControl" iskey="true" value="GridControl">
+        <property name="View" isnull="true" iskey="true">
+          <property name="LinesPerRowMode">None</property>
+          <property name="ColumnChooserState" isnull="true" iskey="true">
+            <property name="Location">1185,-772</property>
+            <property name="Size">220,250</property>
+          </property>
+          <property name="AllowMoveColumnToDropArea">false</property>
+          <property name="AllowColumnMoving">true</property>
+          <property name="AllowSorting">true</property>
+          <property name="ShowTotalSummary">false</property>
+          <property name="IsRowCellMenuEnabled">false</property>
+          <property name="ShowGroupPanel">false</property>
+          <property name="AutoWidth">false</property>
+          <property name="AllowGrouping">false</property>
+        </property>
+        <property name="TotalSummary" iskey="true" value="0" />
+        <property name="SortInfo" iskey="true" value="0" />
+        <property name="GroupSummary" iskey="true" value="0" />
+        <property name="GroupCount">0</property>
+        <property name="Columns" iskey="true" value="5">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">OutRequest_Answers_SystemName</property>
+            <property name="FieldName">SystemName</property>
+            <property name="VisibleIndex">0</property>
+            <property name="Width">83</property>
+            <property name="ActualWidth">6*</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">OutRequest_Answers_Answer</property>
+            <property name="FieldName">Answer</property>
+            <property name="VisibleIndex">1</property>
+            <property name="Width">69</property>
+            <property name="ActualWidth">5*</property>
+          </property>
+          <property name="Item3" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">OutRequest_Answers_Status</property>
+            <property name="FieldName">Status</property>
+            <property name="VisibleIndex">2</property>
+            <property name="Width">69</property>
+            <property name="ActualWidth">5*</property>
+          </property>
+          <property name="Item4" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">OutRequest_Answers_AnswerDate</property>
+            <property name="FieldName">AnswerDate</property>
+            <property name="VisibleIndex">3</property>
+            <property name="Width">97</property>
+            <property name="ActualWidth">7*</property>
+          </property>
+          <property name="Item5" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">OutRequest_Answers_StatusCode</property>
+            <property name="FieldName">StatusCode</property>
+            <property name="VisibleIndex">4</property>
+            <property name="Width">111</property>
+            <property name="ActualWidth">8*</property>
+          </property>
+        </property>
+        <property name="GroupSummarySortInfo" iskey="true" value="0" />
+      </property>
+    </XtraSerializer>
+  </Collection0b369f66e2db4a4194626b87d04a5e30>
+  <Collection6a231908729c4abdaccdbd7d29b03a1d FormGuid="8c4ac2a9-6c76-48f9-9721-c79a123bdab0">
+    <XtraSerializer version="1.0" application="GridControl">
+      <property name="#LayoutVersion" isnull="true" />
+      <property name="$GridControl" iskey="true" value="GridControl">
+        <property name="View" isnull="true" iskey="true">
+          <property name="LinesPerRowMode">None</property>
+          <property name="ColumnChooserState" isnull="true" iskey="true">
+            <property name="Location">1185,-46</property>
+            <property name="Size">220,250</property>
+          </property>
+          <property name="AllowMoveColumnToDropArea">false</property>
+          <property name="AllowColumnMoving">true</property>
+          <property name="AllowSorting">true</property>
+          <property name="ShowTotalSummary">false</property>
+          <property name="IsRowCellMenuEnabled">false</property>
+          <property name="ShowGroupPanel">false</property>
+          <property name="AutoWidth">false</property>
+          <property name="AllowGrouping">false</property>
+        </property>
+        <property name="TotalSummary" iskey="true" value="0" />
+        <property name="SortInfo" iskey="true" value="0" />
+        <property name="GroupSummary" iskey="true" value="0" />
+        <property name="GroupCount">0</property>
+        <property name="Columns" iskey="true" value="2">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">OutRequest_Headers_Key</property>
+            <property name="FieldName">Key</property>
+            <property name="VisibleIndex">0</property>
+            <property name="Width">69</property>
+            <property name="ActualWidth">5*</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">OutRequest_Headers_Value</property>
+            <property name="FieldName">Value</property>
+            <property name="VisibleIndex">1</property>
+            <property name="Width">83</property>
+            <property name="ActualWidth">6*</property>
+          </property>
+        </property>
+        <property name="GroupSummarySortInfo" iskey="true" value="0" />
+      </property>
+    </XtraSerializer>
+  </Collection6a231908729c4abdaccdbd7d29b03a1d>
+</settings>

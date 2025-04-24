@@ -1,0 +1,58 @@
+{
+  "CoverHeaderSettings_Description_310f40a698af41b9bcecbbe6a3da4d2e": {
+    "en-US": "The module is designed to work with integration messages in any direction.",
+    "ru-RU": "Модуль предназначен для работы с интеграционными сообщениями в любом направлении."
+  },
+  "CoverHeaderSettings_Title_310f40a698af41b9bcecbbe6a3da4d2e": {
+    "en-US": "Module for integration with external systems",
+    "ru-RU": "Модуль интеграции с внешними системами"
+  },
+  "Description": {},
+  "ExternalConnection_Description_c8bb514dd0bd492db7332977791821f8": {
+    "en-US": "The databook contains authentication information for connecting to third-party systems.",
+    "ru-RU": "Справочник содержит аутентификационную информацию для подключения к сторонним системам"
+  },
+  "ExternalConnection_Title_c8bb514dd0bd492db7332977791821f8": {
+    "en-US": "Connections",
+    "ru-RU": "Подключения"
+  },
+  "IncomingRequests_Description_0bb520317bf34183b8e4c144898658b0": {
+    "en-US": "The log contains all incoming messages from third-party systems",
+    "ru-RU": "Журнал содержит все входящие сообщения из сторонних систем"
+  },
+  "IncomingRequests_Title_0bb520317bf34183b8e4c144898658b0": {
+    "en-US": "Incoming requests",
+    "ru-RU": "Входящие запросы"
+  },
+  "MainGroup_Title_4b24e11e30934e9bb089af4896121b89": {
+    "en-US": "Main",
+    "ru-RU": "Основное"
+  },
+  "Name": {
+    "en-US": "Integration",
+    "ru-RU": "Интеграция"
+  },
+  "OutgoingRequests_Description_b82f3f6717634b1dbea3bf9270b61b76": {
+    "en-US": "The log contains all outgoing messages to third-party systems",
+    "ru-RU": "Журнал содержит все исходящие сообщения к сторонним системам"
+  },
+  "OutgoingRequests_Title_b82f3f6717634b1dbea3bf9270b61b76": {
+    "en-US": "Outgoing requests",
+    "ru-RU": "Исходящие запросы"
+  },
+  "Settings_Title_f6de98da12c64a91a32c91f9c9ea265a": {
+    "en-US": "Settings",
+    "ru-RU": "Настройки"
+  },
+  "ShowIntegrationSettings_Description_270e9c3b0b7348d390f2aa84a6db892e": {
+    "en-US": "A lot of parameters for performing operations",
+    "ru-RU": "Ряд параметров для выполнения операций модуля интеграции со сторонними системами"
+  },
+  "ShowIntegrationSettings_Title_270e9c3b0b7348d390f2aa84a6db892e": {
+    "en-US": "Integration module settings",
+    "ru-RU": "Настройки модуля интеграции"
+  },
+  "Tab_Title_396c338bd0454e659fc26665cd532ed0": {
+    "en-US": "Tab"
+  }
+}

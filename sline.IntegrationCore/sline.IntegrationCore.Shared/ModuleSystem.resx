@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DisplayName" xml:space="preserve">
+    <value>Integration</value>
+  </data>
+  <data name="CoverTitle" xml:space="preserve">
+    <value>Module for integration with external systems</value>
+  </data>
+  <data name="JobDisplayName_49331c4395434e9587272ebcf2781de1" xml:space="preserve">
+    <value>Integration. Sending requests</value>
+  </data>
+  <data name="JobDescription_49331c4395434e9587272ebcf2781de1" xml:space="preserve">
+    <value>Sending requests to external system</value>
+  </data>
+  <data name="AsyncHandler_Description_bb7c9c61e9124115b060c19728a72353" xml:space="preserve">
+    <value>Send query to external system</value>
+  </data>
+  <data name="CoverGroup_MainGroup" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="CoverDescription" xml:space="preserve">
+    <value>The module is designed to work with integration messages in any direction.</value>
+  </data>
+  <data name="CoverAction_ExternalConnection" xml:space="preserve">
+    <value>Connections</value>
+  </data>
+  <data name="CoverDescription_ExternalConnection" xml:space="preserve">
+    <value>The databook contains authentication information for connecting to third-party systems.</value>
+  </data>
+  <data name="CoverTab_Tab" xml:space="preserve">
+    <value>Tab</value>
+  </data>
+  <data name="CoverGroup_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="CoverAction_ShowIntegrationSettings" xml:space="preserve">
+    <value>Integration module settings</value>
+  </data>
+  <data name="CoverDescription_ShowIntegrationSettings" xml:space="preserve">
+    <value>A lot of parameters for performing operations</value>
+  </data>
+  <data name="sf_bca969eb_a1cb_4702_9cd3_6921eb82b680" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="CoverAction_IncomingRequests" xml:space="preserve">
+    <value>Incoming requests</value>
+  </data>
+  <data name="CoverDescription_IncomingRequests" xml:space="preserve">
+    <value>The log contains all incoming messages from third-party systems</value>
+  </data>
+  <data name="CoverAction_OutgoingRequests" xml:space="preserve">
+    <value>Outgoing requests</value>
+  </data>
+  <data name="CoverDescription_OutgoingRequests" xml:space="preserve">
+    <value>The log contains all outgoing messages to third-party systems</value>
+  </data>
+  <data name="JobDisplayName_0616564999694e9a9946dc9d86e710f6" xml:space="preserve">
+    <value>Integration. Delete old requests</value>
+  </data>
+  <data name="JobDescription_0616564999694e9a9946dc9d86e710f6" xml:space="preserve">
+    <value>Cleaning up stale requests</value>
+  </data>
+</root>

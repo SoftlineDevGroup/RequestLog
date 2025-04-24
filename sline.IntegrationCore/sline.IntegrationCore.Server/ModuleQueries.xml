@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<queries>
+  <query key="CreateAsyncIdsTable">
+    <mssql><![CDATA[if OBJECT_ID('IntCore_Async_Ids') is null
+CREATE TABLE IntCore_Async_Ids
+(
+	Guid varchar(50),
+	RequestId varchar(max)
+);]]></mssql>
+    <postgres><![CDATA[CREATE TABLE IF NOT EXISTS public.sline_intcore_asyncids (guid VARCHAR(50), requestid TEXT);]]></postgres>
+  </query>
+  <query key="InsertAsyncIds">
+    <default><![CDATA[INSERT INTO sline_intcore_asyncids 
+VALUES ('{0}','{1}');]]></default>
+  </query>
+  <query key="SelectAsyncIds">
+    <default><![CDATA[SELECT RequestId 
+FROM sline_intcore_asyncids 
+WHERE Guid = '{0}';]]></default>
+  </query>
+  <query key="DeleteAsyncIds">
+    <default><![CDATA[DELETE FROM sline_intcore_asyncids 
+WHERE Guid = '{0}';]]></default>
+  </query>
+</queries>

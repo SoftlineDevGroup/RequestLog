@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <ViewName>Default</ViewName>
+  <Collection FormGuid="cddd4c25-da1e-45d4-ab4b-0250a22ce940">
+    <XtraSerializer version="1.0" application="GridControl">
+      <property name="#LayoutVersion" isnull="true" />
+      <property name="$GridControl" iskey="true" value="GridControl">
+        <property name="View" isnull="true" iskey="true">
+          <property name="LinesPerRowMode">OneLineMode</property>
+          <property name="ColumnChooserState" isnull="true" iskey="true">
+            <property name="Location">1021,-194</property>
+            <property name="Size">220,250</property>
+          </property>
+          <property name="AllowSorting">true</property>
+          <property name="IsRowCellMenuEnabled">false</property>
+          <property name="AutoWidth">true</property>
+          <property name="AllowGrouping">true</property>
+        </property>
+        <property name="TotalSummary" iskey="true" value="0" />
+        <property name="SortInfo" iskey="true" value="0" />
+        <property name="GroupSummary" iskey="true" value="0" />
+        <property name="GroupCount">0</property>
+        <property name="Columns" iskey="true" value="12">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">5</property>
+            <property name="MinWidth">32</property>
+            <property name="FixedWidth">true</property>
+            <property name="Visible">true</property>
+            <property name="FieldName">T</property>
+            <property name="VisibleIndex">0</property>
+            <property name="Width">32</property>
+            <property name="ActualWidth">3*</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">6</property>
+            <property name="Visible">true</property>
+            <property name="Name">IncRequest_Id</property>
+            <property name="FieldName">Id</property>
+            <property name="VisibleIndex">1</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item3" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">7</property>
+            <property name="Visible">true</property>
+            <property name="Name">IncRequest_Name</property>
+            <property name="FieldName">Name</property>
+            <property name="VisibleIndex">2</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item4" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">0</property>
+            <property name="Visible">false</property>
+            <property name="Name">IncRequest_Body</property>
+            <property name="FieldName">Body</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item5" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">1</property>
+            <property name="Visible">false</property>
+            <property name="Name">IncRequest_Answer</property>
+            <property name="FieldName">Answer</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item6" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">8</property>
+            <property name="Visible">true</property>
+            <property name="Name">IncRequest_EntityId</property>
+            <property name="FieldName">EntityId</property>
+            <property name="VisibleIndex">3</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item7" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">2</property>
+            <property name="Visible">false</property>
+            <property name="Name">IncRequest_Datetime</property>
+            <property name="FieldName">Datetime</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item8" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">9</property>
+            <property name="Visible">true</property>
+            <property name="Name">IncRequest_EntityType</property>
+            <property name="FieldName">EntityType</property>
+            <property name="VisibleIndex">4</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item9" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">10</property>
+            <property name="Visible">true</property>
+            <property name="Name">IncRequest_ExternalId</property>
+            <property name="FieldName">ExternalId</property>
+            <property name="VisibleIndex">5</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item10" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">3</property>
+            <property name="Visible">false</property>
+            <property name="Name">IncRequest_LargeBody</property>
+            <property name="FieldName">LargeBody.DisplayValue</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item11" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">11</property>
+            <property name="Visible">true</property>
+            <property name="Name">IncRequest_ExtSystemId</property>
+            <property name="FieldName">ExtSystemId</property>
+            <property name="VisibleIndex">6</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+          <property name="Item12" isnull="true" iskey="true">
+            <property name="ExtendedVisibleIndex">4</property>
+            <property name="Visible">false</property>
+            <property name="Name">IncRequest_Created</property>
+            <property name="FieldName">Created</property>
+            <property name="ActualWidth">NaN</property>
+          </property>
+        </property>
+        <property name="GroupSummarySortInfo" iskey="true" value="0" />
+      </property>
+    </XtraSerializer>
+  </Collection>
+</settings>

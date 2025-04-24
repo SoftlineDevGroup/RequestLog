@@ -1,0 +1,1315 @@
+{
+  "$type": "Sungero.Metadata.ModuleMetadata, Sungero.Metadata",
+  "NameGuid": "52fb1797-4952-4721-ba92-801f6c647663",
+  "Name": "IntegrationCore",
+  "AsyncHandlers": [
+    {
+      "NameGuid": "bb7c9c61-e912-4115-b060-c19728a72353",
+      "Name": "AsyncSendRequests",
+      "DelayPeriod": 5,
+      "DelayStrategy": "RegularDelayStrategy",
+      "IsHandlerGenerated": true,
+      "MaxRetryCount": 5,
+      "Parameters": [
+        {
+          "NameGuid": "00730ea8-86e5-4374-8c0a-8485ee757f27",
+          "Name": "QueryId",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "b5763e61-d4b4-418e-9a7e-3aca1f596906",
+          "Name": "IsManual",
+          "ParameterType": "Boolean"
+        },
+        {
+          "NameGuid": "d05b128f-0922-464c-ab6a-c19717689704",
+          "Name": "Guid",
+          "ParameterType": "String"
+        }
+      ]
+    }
+  ],
+  "ClientAssemblyName": "sline.IntegrationCore.Client",
+  "ClientBaseAssemblyName": "sline.IntegrationCore.ClientBase",
+  "ClientBaseNamespace": "sline.IntegrationCore.ClientBase",
+  "ClientNamespace": "sline.IntegrationCore.Client",
+  "Code": "IntCore",
+  "CompanyCode": "sline",
+  "Cover": {
+    "NameGuid": "3218d8ce-2c11-430a-99cb-d2e6c56229b8",
+    "Actions": [
+      {
+        "$type": "Sungero.Metadata.CoverEntityListActionMetadata, Sungero.Metadata",
+        "NameGuid": "0bb52031-7bf3-4183-b8e4-c144898658b0",
+        "Name": "IncomingRequests",
+        "EntityTypeId": "73848fb7-b4fe-4343-8ce3-80b5e83b6a9a",
+        "GroupId": "4b24e11e-3093-4e9b-b089-af4896121b89",
+        "PreviousItemGuid": "b82f3f67-1763-4b1d-bea3-bf9270b61b76"
+      },
+      {
+        "$type": "Sungero.Metadata.CoverFunctionActionMetadata, Sungero.Metadata",
+        "NameGuid": "270e9c3b-0b73-48d3-90f2-aa84a6db892e",
+        "Name": "ShowIntegrationSettings",
+        "FunctionName": "ShowIntegrationSettings",
+        "GroupId": "f6de98da-12c6-4a91-a32c-91f9c9ea265a",
+        "PreviousItemGuid": "c8bb514d-d0bd-492d-b733-2977791821f8"
+      },
+      {
+        "$type": "Sungero.Metadata.CoverEntityListActionMetadata, Sungero.Metadata",
+        "NameGuid": "b82f3f67-1763-4b1d-bea3-bf9270b61b76",
+        "Name": "OutgoingRequests",
+        "EntityTypeId": "2b29e704-2e3b-4edd-afb5-3415cf02e29c",
+        "GroupId": "4b24e11e-3093-4e9b-b089-af4896121b89"
+      },
+      {
+        "$type": "Sungero.Metadata.CoverEntityListActionMetadata, Sungero.Metadata",
+        "NameGuid": "c8bb514d-d0bd-492d-b733-2977791821f8",
+        "Name": "ExternalConnection",
+        "EntityTypeId": "734723f8-81cd-44af-a8f7-c4e31de73622",
+        "GroupId": "f6de98da-12c6-4a91-a32c-91f9c9ea265a"
+      }
+    ],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "af0ff10c-6d8d-4086-b45c-d0b54fa6cc86",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [
+      {
+        "NameGuid": "4b24e11e-3093-4e9b-b089-af4896121b89",
+        "Name": "MainGroup",
+        "BackgroundPosition": "Stretch",
+        "IconName": "GroupIconMainGroup_4b24e11e30934e9bb089af4896121b89.png",
+        "TabId": "396c338b-d045-4e65-9fc2-6665cd532ed0"
+      },
+      {
+        "NameGuid": "f6de98da-12c6-4a91-a32c-91f9c9ea265a",
+        "Name": "Settings",
+        "BackgroundPosition": "Stretch",
+        "IconName": "GroupIconSettings_f6de98da12c64a91a32c91f9c9ea265a.png",
+        "PreviousItemGuid": "4b24e11e-3093-4e9b-b089-af4896121b89",
+        "TabId": "396c338b-d045-4e65-9fc2-6665cd532ed0"
+      }
+    ],
+    "Header": {
+      "NameGuid": "310f40a6-98af-41b9-bcec-bbe6a3da4d2e",
+      "BackgroundPosition": "Stretch",
+      "IconName": "HeaderIcon_310f40a698af41b9bcecbbe6a3da4d2e.png"
+    },
+    "RemoteControls": [],
+    "Tabs": [
+      {
+        "NameGuid": "396c338b-d045-4e65-9fc2-6665cd532ed0",
+        "Name": "Tab"
+      }
+    ]
+  },
+  "Dependencies": [
+    {
+      "Id": "ce5ea328-c41b-4279-9004-349ae73342ab",
+      "IsSolutionModule": true,
+      "MaxVersion": "",
+      "MinVersion": ""
+    },
+    {
+      "Id": "df83a2ea-8d43-4ec4-a34a-2e61863014df",
+      "MaxVersion": "",
+      "MinVersion": "4.6.0.0"
+    },
+    {
+      "Id": "459fa497-ee5b-49a4-9980-de00cada9b7a",
+      "MaxVersion": "",
+      "MinVersion": "4.6.0.0"
+    },
+    {
+      "Id": "243b34ec-8425-4c7e-b66f-27f7b9c8f38d",
+      "MaxVersion": "",
+      "MinVersion": "4.6.0.0"
+    }
+  ],
+  "ExplorerTreeOrder": [
+    {
+      "ItemId": "2b29e704-2e3b-4edd-afb5-3415cf02e29c"
+    },
+    {
+      "IsVisible": false,
+      "ItemId": "734723f8-81cd-44af-a8f7-c4e31de73622",
+      "PreviousItemId": "2b29e704-2e3b-4edd-afb5-3415cf02e29c"
+    },
+    {
+      "IsVisible": false,
+      "ItemId": "9f8bf3da-12c7-48fa-ac3d-3f59ce41aefe",
+      "PreviousItemId": "734723f8-81cd-44af-a8f7-c4e31de73622"
+    },
+    {
+      "IsVisible": false,
+      "ItemId": "dfee544d-c6b2-4755-a63d-d61483e156e2",
+      "PreviousItemId": "9f8bf3da-12c7-48fa-ac3d-3f59ce41aefe"
+    },
+    {
+      "ItemId": "73848fb7-b4fe-4343-8ce3-80b5e83b6a9a",
+      "PreviousItemId": "dfee544d-c6b2-4755-a63d-d61483e156e2"
+    },
+    {
+      "IsVisible": false,
+      "ItemId": "ac639f30-25ba-4f1a-98e6-ae6dfe392f32",
+      "PreviousItemId": "73848fb7-b4fe-4343-8ce3-80b5e83b6a9a"
+    }
+  ],
+  "HandledEvents": [
+    "InitializingServer"
+  ],
+  "IconResourcesKeys": [],
+  "Importance": "Medium",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "sline.IntegrationCore",
+  "IsolatedAreas": [
+    {
+      "NameGuid": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Name": "IsoArea"
+    }
+  ],
+  "IsolatedAssemblyName": "sline.IntegrationCore.Isolated",
+  "IsolatedFunctions": [
+    {
+      "NameGuid": "8c8d6629-64fe-4fab-a124-ac8cc130521e",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "syncResult",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "NameGuid": "73f8b4e0-e06a-44d7-88f6-84006a3cac82",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "jobTitleModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IJobTitleModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IJobTitleModel, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "NameGuid": "0a32fcbe-99f1-4c86-b2cc-b118824d1ceb",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "personModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IPersonModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IPersonModel, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "NameGuid": "73576f18-e67d-44d0-82b7-7eeccd1dd616",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "departmentModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IDepartmentModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IDepartmentModel, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "NameGuid": "a0709973-a973-4340-9607-5c7b806134cd",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "businessUnitModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IBusinessUnitModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IBusinessUnitModel, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "NameGuid": "c0937eac-76c6-4372-bc78-db4b02adef97",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "employeeModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IEmployeeModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IEmployeeModel, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "NameGuid": "6540d6c7-46c3-4c62-bfe5-c0c0bb1a94f4",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "counterpartyModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.ICounterpartyModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.ICounterpartyModel, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "NameGuid": "a4731071-b543-42ee-b193-b96aee19d46e",
+      "Name": "SerializeStructure",
+      "IsolatedAreaId": "8ec246e6-61f2-4cba-813d-01b530b81c4b",
+      "Parameters": [
+        {
+          "Name": "answer",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IAnswersFromOtherSystems",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IAnswersFromOtherSystems, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    }
+  ],
+  "IsolatedNamespace": "sline.IntegrationCore.Isolated",
+  "IsVisible": false,
+  "Jobs": [
+    {
+      "NameGuid": "49331c43-9543-4e95-8727-2ebcf2781de1",
+      "Name": "SendingRequest",
+      "Daily": "Repeat",
+      "GenerateHandler": true,
+      "MonthSchedule": "Monthly",
+      "TimePeriod": 10
+    },
+    {
+      "NameGuid": "06165649-9969-4e9a-9946-dc9d86e710f6",
+      "Name": "DeleteOldRequest",
+      "GenerateHandler": true,
+      "MonthSchedule": "Monthly",
+      "StartAt": "1753-01-01T03:00:00"
+    }
+  ],
+  "Overridden": [
+    "IsVisible"
+  ],
+  "PublicFunctions": [
+    {
+      "Name": "CanManageSettings",
+      "Placement": "Client",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "CreateOutRequest",
+      "Parameters": [
+        {
+          "Name": "shortData",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IShortData",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IShortData"
+        }
+      ],
+      "ReturnType": "global::System.Int64",
+      "ReturnTypeFullName": "System.Int64"
+    },
+    {
+      "Name": "GetAsyncBatchSetting",
+      "IsRemote": true,
+      "Placement": "Shared",
+      "ReturnType": "global::System.Int32",
+      "ReturnTypeFullName": "System.Int32"
+    },
+    {
+      "Name": "GetAsyncIds",
+      "Parameters": [
+        {
+          "Name": "guid",
+          "ParameterType": "global::System.String",
+          "ParameterTypeFullName": "System.String"
+        }
+      ],
+      "ReturnType": "global::System.Collections.Generic.List<global::System.String>",
+      "ReturnTypeFullName": "System.Collections.Generic.List"
+    },
+    {
+      "Name": "GetDebugModeSetting",
+      "IsRemote": true,
+      "Placement": "Shared",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "GetIncomingRequestSetting",
+      "IsRemote": true,
+      "Placement": "Shared",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "GetInProcessOutRequest",
+      "Parameters": [
+        {
+          "Name": "shortData",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IShortData",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IShortData"
+        }
+      ],
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "GetIntegrationRole",
+      "IsRemote": true,
+      "Placement": "Shared",
+      "ReturnType": "global::Sungero.CoreEntities.IRole",
+      "ReturnTypeFullName": "Sungero.CoreEntities.IRole, Sungero.Domain.Shared"
+    },
+    {
+      "Name": "GetIterationMaxCountSetting",
+      "IsRemote": true,
+      "Placement": "Shared",
+      "ReturnType": "global::System.Int32",
+      "ReturnTypeFullName": "System.Int32"
+    },
+    {
+      "Name": "GetLifeTimeSetting",
+      "IsRemote": true,
+      "Placement": "Shared",
+      "ReturnType": "global::System.Int32",
+      "ReturnTypeFullName": "System.Int32"
+    },
+    {
+      "Name": "GetOrCreateOutRequest",
+      "Parameters": [
+        {
+          "Name": "data",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IData",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IData"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.IOutRequest",
+      "ReturnTypeFullName": "sline.IntegrationCore.IOutRequest, Sungero.Domain.Interfaces"
+    },
+    {
+      "Name": "InsertAsyncIds",
+      "Parameters": [
+        {
+          "Name": "guid",
+          "ParameterType": "global::System.String",
+          "ParameterTypeFullName": "System.String"
+        },
+        {
+          "Name": "ids",
+          "ParameterType": "global::System.String",
+          "ParameterTypeFullName": "System.String"
+        }
+      ],
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
+      "Name": "SendRequest",
+      "Parameters": [
+        {
+          "Name": "outRequest",
+          "ParameterType": "global::sline.IntegrationCore.IOutRequest",
+          "ParameterTypeFullName": "sline.IntegrationCore.IOutRequest, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.IOutRequest",
+      "ReturnTypeFullName": "sline.IntegrationCore.IOutRequest, Sungero.Domain.Interfaces"
+    },
+    {
+      "Name": "SyncBusinessUnit",
+      "Parameters": [
+        {
+          "Name": "businessUnitModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IBusinessUnitModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IBusinessUnitModel"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+      "ReturnTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult",
+      "WebApiRequestType": "Post"
+    },
+    {
+      "Name": "SyncCounterparty",
+      "Parameters": [
+        {
+          "Name": "counterpartyModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.ICounterpartyModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.ICounterpartyModel"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+      "ReturnTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult",
+      "WebApiRequestType": "Post"
+    },
+    {
+      "Name": "SyncDepartment",
+      "Parameters": [
+        {
+          "Name": "departmentModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IDepartmentModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IDepartmentModel"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+      "ReturnTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult",
+      "WebApiRequestType": "Post"
+    },
+    {
+      "Name": "SyncEmployee",
+      "Parameters": [
+        {
+          "Name": "employeeModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IEmployeeModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IEmployeeModel"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+      "ReturnTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult",
+      "WebApiRequestType": "Post"
+    },
+    {
+      "Name": "SyncJobTitle",
+      "Parameters": [
+        {
+          "Name": "jobTitleModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IJobTitleModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IJobTitleModel"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+      "ReturnTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult",
+      "WebApiRequestType": "Post"
+    },
+    {
+      "Name": "SyncPerson",
+      "Parameters": [
+        {
+          "Name": "personModel",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IPersonModel",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IPersonModel"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+      "ReturnTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult",
+      "WebApiRequestType": "Post"
+    },
+    {
+      "Name": "UpdateOutRequest",
+      "Parameters": [
+        {
+          "Name": "answer",
+          "ParameterType": "global::sline.IntegrationCore.Structures.Module.IAnswersFromOtherSystems",
+          "ParameterTypeFullName": "sline.IntegrationCore.Structures.Module.IAnswersFromOtherSystems"
+        }
+      ],
+      "ReturnType": "global::sline.IntegrationCore.Structures.Module.ISyncResult",
+      "ReturnTypeFullName": "sline.IntegrationCore.Structures.Module.ISyncResult",
+      "WebApiRequestType": "Post"
+    }
+  ],
+  "PublicStructures": [
+    {
+      "Name": "AnswersFromOtherSystems",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Id",
+          "TypeFullName": "global::System.Int64"
+        },
+        {
+          "Name": "SystemName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "StatusCode",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Answer",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "DateTime",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.DateTime>"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "BusinessUnitModel",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Entity",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Name",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "LegalName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "TIN",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "TRRC",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "PSRN",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "HeadCompany",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "CEO",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "ObjectExtension",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "CounterpartyModel",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "EntityType",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Entity",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Name",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "LegalName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Nonresident",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Boolean>"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Code",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "City",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Region",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "LegalAddress",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "PostalAddress",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Phones",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Email",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Homepage",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Responsible",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "HeadCompany",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "TIN",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "TRRC",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "PSRN",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "NCEO",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "NCEA",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "INILA",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "BIC",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "SWIFT",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Note",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "LastName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "FirstName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "MiddleName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "DateOfBirth",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.DateTime>"
+        },
+        {
+          "Name": "Sex",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Account",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "CorrespondentAccount",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Bank",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "ObjectExtension",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "CreatedOutQuery",
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Id",
+          "TypeFullName": "global::System.Int64"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "Data",
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Id",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Int64>"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "SystemCode",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "MethodCode",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Body",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "MethodType",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Auth",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Headers",
+          "IsList": true,
+          "IsNullable": true,
+          "TypeFullName": "global::System.Collections.Generic.List<global::sline.IntegrationCore.Structures.Module.IHeaders>"
+        },
+        {
+          "Name": "InstantResponse",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Boolean>"
+        },
+        {
+          "Name": "EntityType",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "EntityId",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Int64>"
+        },
+        {
+          "Name": "Name",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "DepartmentModel",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Entity",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Name",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "BusinessUnit",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "HeadOffice",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Manager",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "ObjectExtension",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "EmployeeModel",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Entity",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Person",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "JobTitle",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Department",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Phone",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Email",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "NeedNotifyExpiredAssignments",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Boolean>"
+        },
+        {
+          "Name": "NeedNotifyNewAssignments",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Boolean>"
+        },
+        {
+          "Name": "NeedNotifyAssignmentsSummary",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Boolean>"
+        },
+        {
+          "Name": "PersonnelNumber",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "ObjectExtension",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "EntityModel",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Id",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Int64>"
+        },
+        {
+          "Name": "ExternalId",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "ExtSystemId",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "Headers",
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Key",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Value",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "IncomingRequestDto",
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Name",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "EntityType",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "EntityId",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.Int64>"
+        },
+        {
+          "Name": "ExternalId",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "ExtSystemId",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Body",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Answer",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "JobTitleModel",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Entity",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Name",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Department",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "ObjectExtension",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "PersonModel",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Entity",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Status",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "LastName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "FirstName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "MiddleName",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Sex",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "DateOfBirth",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.DateTime>"
+        },
+        {
+          "Name": "TIN",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "INILA",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "ObjectExtension",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "ShortData",
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "EntityType",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "EntityId",
+          "TypeFullName": "global::System.Int64"
+        },
+        {
+          "Name": "Name",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "SyncResult",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Entity",
+          "IsNullable": true,
+          "TypeFullName": "global::sline.IntegrationCore.Structures.Module.IEntityModel"
+        },
+        {
+          "Name": "Result",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Hyperlink",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Messages",
+          "IsList": true,
+          "IsNullable": true,
+          "TypeFullName": "global::System.Collections.Generic.List<global::sline.IntegrationCore.Structures.Module.ISyncResultMessage>"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    },
+    {
+      "Name": "SyncResultMessage",
+      "IsIsolated": true,
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Type",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        },
+        {
+          "Name": "Message",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
+    }
+  ],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "sline.IntegrationCore",
+  "ResourcesKeys": [
+    "RoleNameIntegration",
+    "DescriptionIntegration",
+    "Password",
+    "SetPassword",
+    "CheckingConnection",
+    "ErrorNotFoundIteration",
+    "ErrorNotFoundBatch",
+    "SettingDialogName",
+    "SettingDialogJob",
+    "SettingDialogInterationName",
+    "SettingDialogBatchName",
+    "SettingDialogDocumentsName",
+    "SettingDialogDebug",
+    "SettingDialogBoolean",
+    "SettingDialogButtonUpdate",
+    "Person_PropsNotSpecified",
+    "Person_ManyEntitiesFound",
+    "Person_NotCompleted",
+    "Entity_ValidationError",
+    "Entity_SaveError",
+    "ExtLink_SaveError",
+    "Employee_PersonNotFound",
+    "Employee_DepartmentNotFound",
+    "JobTitle_DepartmentNotFound",
+    "Departments_HeadNotFound",
+    "Department_BusinessUnitNotFound",
+    "Department_ManagerNotFound",
+    "BusinessUnit_CEONotFound",
+    "BusinessUnit_HeadCompanyNotFound",
+    "Employee_JobTitleNotFound",
+    "SettingDialogIncRequests",
+    "IncRequest_Name",
+    "OutRequest_NullReqValues",
+    "OutRequest_EntityNotFound",
+    "OutRequest_Exception",
+    "OutRequest_OK",
+    "OutRequest_WebException",
+    "ExternalSystemNotSpecified",
+    "OutRequest_WebExceptionNoResponse",
+    "OutRequest_OtherException",
+    "Counterparty_RequiredFieldsError",
+    "Setting_NoRights",
+    "SettingDialogADUse",
+    "Dialog_No",
+    "Dialog_Yes",
+    "Counterparty_ResponsibleNotFound",
+    "Counterparty_RegionNotFound",
+    "GroupGeneral",
+    "IncomingGroup",
+    "OutgoingGroup",
+    "SettingDialogLifeTime",
+    "Counterparty_HeadCompanyNotFound",
+    "BusinessUnitName",
+    "DepartmentName",
+    "PersonName",
+    "UpdateOutRequestName"
+  ],
+  "ServerAssemblyName": "sline.IntegrationCore.Server",
+  "ServerNamespace": "sline.IntegrationCore.Server",
+  "SharedAssemblyName": "sline.IntegrationCore.Shared",
+  "SharedNamespace": "sline.IntegrationCore.Shared",
+  "SpecialFolders": [],
+  "Version": "25.1.0.1",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}

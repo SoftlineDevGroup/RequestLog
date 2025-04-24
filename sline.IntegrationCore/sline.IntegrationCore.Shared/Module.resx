@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RoleNameIntegration" xml:space="preserve">
+    <value>Responsible for integration</value>
+  </data>
+  <data name="DescriptionIntegration" xml:space="preserve">
+    <value>Users responsible for integration with external systems.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="CheckingConnection" xml:space="preserve">
+    <value>Checking the connection</value>
+  </data>
+  <data name="ErrorNotFoundIteration" xml:space="preserve">
+    <value>The integration setting "Number of iterations" is missing in the database</value>
+  </data>
+  <data name="ErrorNotFoundBatch" xml:space="preserve">
+    <value>The integration setting "Package size" is missing in the database</value>
+  </data>
+  <data name="SettingDialogName" xml:space="preserve">
+    <value>Integration settings
+</value>
+  </data>
+  <data name="SettingDialogJob" xml:space="preserve">
+    <value>Job "Integration. Sending requests"</value>
+  </data>
+  <data name="SettingDialogInterationName" xml:space="preserve">
+    <value>Submission iterations count</value>
+  </data>
+  <data name="SettingDialogBatchName" xml:space="preserve">
+    <value>Package size</value>
+  </data>
+  <data name="SettingDialogDocumentsName" xml:space="preserve">
+    <value>Documents count</value>
+  </data>
+  <data name="SettingDialogDebug" xml:space="preserve">
+    <value>Debug mode</value>
+  </data>
+  <data name="SettingDialogBoolean" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="SettingDialogButtonUpdate" xml:space="preserve">
+    <value>Set values</value>
+  </data>
+  <data name="Person_PropsNotSpecified" xml:space="preserve">
+    <value>It was not possible to synchronize the person with ID '{0}', ExtId '{1}', because the TIN or INILA was not specified in the external system</value>
+  </data>
+  <data name="Person_ManyEntitiesFound" xml:space="preserve">
+    <value>Failed to sync person with ID '{0}', ExtId '{1}'. Several persons with the specified TIN and/or INILA were found in Directum RX</value>
+  </data>
+  <data name="Person_NotCompleted" xml:space="preserve">
+    <value>Failed to create or sync person with ID '{0}', ExtId '{1}'</value>
+  </data>
+  <data name="Entity_ValidationError" xml:space="preserve">
+    <value>Validation errors when saving an entity with ID '{0}', ExtId '{1}': {2}</value>
+  </data>
+  <data name="Entity_SaveError" xml:space="preserve">
+    <value>Failed to save entity with ID '{0}', ExtId '{1}' due to reason '{2}'</value>
+  </data>
+  <data name="ExtLink_SaveError" xml:space="preserve">
+    <value>Failed to save external link for entity with ID '{0}', ExtId '{1}' due to reason '{2}'</value>
+  </data>
+  <data name="Employee_PersonNotFound" xml:space="preserve">
+    <value>Person with ID '{0}', ExtId '{1}' was not found for employee with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Employee_DepartmentNotFound" xml:space="preserve">
+    <value>Department with ID '{0}', ExtId '{1}' was not found for employee with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="JobTitle_DepartmentNotFound" xml:space="preserve">
+    <value>Department with ID '{0}', ExtId '{1}' was not found for job title with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Departments_HeadNotFound" xml:space="preserve">
+    <value>The parent department with  ID '{0}', ExtId '{1}' was not found for the department with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Department_BusinessUnitNotFound" xml:space="preserve">
+    <value>Business unit with ID '{0}', ExtId '{1}' was not found for department with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Department_ManagerNotFound" xml:space="preserve">
+    <value>Manager with ID '{0}', ExtId '{1}' was not found for department with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="BusinessUnit_CEONotFound" xml:space="preserve">
+    <value>Manager with ID '{0}', ExtId '{1}' was not found for business unit with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="BusinessUnit_HeadCompanyNotFound" xml:space="preserve">
+    <value>The parent organization with ID '{0}', ExtId '{1}' was not found for business unit with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Employee_JobTitleNotFound" xml:space="preserve">
+    <value>Job title with ExtId '{0}' was not found for employee with ID '{1}', ExtId '{2}'</value>
+  </data>
+  <data name="SettingDialogIncRequests" xml:space="preserve">
+    <value>Capture incoming requests</value>
+  </data>
+  <data name="IncRequest_Name" xml:space="preserve">
+    <value>Synchronize entity "{0}" from {1}</value>
+  </data>
+  <data name="OutRequest_NullReqValues" xml:space="preserve">
+    <value>Error: required values is null or empty.</value>
+  </data>
+  <data name="OutRequest_EntityNotFound" xml:space="preserve">
+    <value>Not found OutRequest with Id '{0}'.</value>
+  </data>
+  <data name="OutRequest_Exception" xml:space="preserve">
+    <value>Error: Check Directum RX logs to view full information about exception.</value>
+  </data>
+  <data name="OutRequest_OK" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="OutRequest_WebException" xml:space="preserve">
+    <value>WebException. 
+{0}</value>
+  </data>
+  <data name="ExternalSystemNotSpecified" xml:space="preserve">
+    <value>Recipient system not specified</value>
+  </data>
+  <data name="OutRequest_WebExceptionNoResponse" xml:space="preserve">
+    <value>WebException.
+Error: {0}</value>
+  </data>
+  <data name="OutRequest_OtherException" xml:space="preserve">
+    <value>Other exception. 
+{0}</value>
+  </data>
+  <data name="Counterparty_RequiredFieldsError" xml:space="preserve">
+    <value>Required fields not filled: {0}</value>
+  </data>
+  <data name="Setting_NoRights" xml:space="preserve">
+    <value>You can't work with module settings</value>
+  </data>
+  <data name="SettingDialogADUse" xml:space="preserve">
+    <value>Use AD integration module</value>
+  </data>
+  <data name="Dialog_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Dialog_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Counterparty_ResponsibleNotFound" xml:space="preserve">
+    <value>Not found responsible employee with ID '{0}', ExtId '{1}' for counterparty with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Counterparty_RegionNotFound" xml:space="preserve">
+    <value>Не найден регион с кодом '{0}' для контрагента c ID '{1}', ExtId '{2}</value>
+  </data>
+  <data name="GroupGeneral" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="IncomingGroup" xml:space="preserve">
+    <value>Incoming flow</value>
+  </data>
+  <data name="OutgoingGroup" xml:space="preserve">
+    <value>Outgoing flow</value>
+  </data>
+  <data name="SettingDialogLifeTime" xml:space="preserve">
+    <value>Requests life time (days)</value>
+  </data>
+  <data name="Counterparty_HeadCompanyNotFound" xml:space="preserve">
+    <value>Not found head company with ID '{0}', ExtId '{1}' for counterparty with ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="BusinessUnitName" xml:space="preserve">
+    <value>Business unit</value>
+  </data>
+  <data name="DepartmentName" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="PersonName" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="UpdateOutRequestName" xml:space="preserve">
+    <value>Sending a response from an external system to a request with the ID "{0}" from {1}</value>
+  </data>
+</root>

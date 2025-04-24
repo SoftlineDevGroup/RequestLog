@@ -1,0 +1,61 @@
+{
+  "$type": "Sungero.Metadata.SolutionMetadata, Sungero.Metadata",
+  "NameGuid": "ce5ea328-c41b-4279-9004-349ae73342ab",
+  "Name": "RequestLog",
+  "AsyncHandlers": [],
+  "ClientAssemblyName": "sline.RequestLog.Client",
+  "ClientBaseAssemblyName": "sline.RequestLog.ClientBase",
+  "ClientBaseNamespace": "sline.RequestLog.ClientBase",
+  "ClientNamespace": "sline.RequestLog.Client",
+  "Code": "ReqLog",
+  "CompanyCode": "sline",
+  "Cover": {
+    "NameGuid": "f0e7e889-86d6-471e-892a-717cad28fa20",
+    "Actions": [],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "cab70521-d604-4105-87f5-089d57710e21",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [],
+    "Header": {
+      "NameGuid": "d73920e5-3120-4606-9a19-94462be10317",
+      "BackgroundPosition": "Stretch"
+    },
+    "RemoteControls": [],
+    "Tabs": []
+  },
+  "DesktopViews": [],
+  "IconResourcesKeys": [],
+  "Importance": "Medium",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "sline.RequestLog",
+  "IsolatedAssemblyName": "sline.RequestLog.Isolated",
+  "IsolatedNamespace": "sline.RequestLog.Isolated",
+  "OrderedSpecialFolders": [],
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "sline.RequestLog",
+  "ResourcesKeys": [],
+  "ServerAssemblyName": "sline.RequestLog.Server",
+  "ServerNamespace": "sline.RequestLog.Server",
+  "SharedAssemblyName": "sline.RequestLog.Shared",
+  "SharedNamespace": "sline.RequestLog.Shared",
+  "SpecialFolders": [],
+  "Version": "25.1.0.1",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "SolutionMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}

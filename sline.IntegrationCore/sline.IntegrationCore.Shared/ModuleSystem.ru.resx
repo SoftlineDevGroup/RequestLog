@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DisplayName" xml:space="preserve">
+    <value>Интеграция</value>
+  </data>
+  <data name="JobDisplayName_49331c4395434e9587272ebcf2781de1" xml:space="preserve">
+    <value>Интеграция. Отправка запросов</value>
+  </data>
+  <data name="JobDescription_49331c4395434e9587272ebcf2781de1" xml:space="preserve">
+    <value>Отправка запросов к сторонней системе</value>
+  </data>
+  <data name="AsyncHandler_Description_bb7c9c61e9124115b060c19728a72353" xml:space="preserve">
+    <value>Отправка запроса к внешней системе</value>
+  </data>
+  <data name="CoverGroup_MainGroup" xml:space="preserve">
+    <value>Основное</value>
+  </data>
+  <data name="CoverGroup_Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="CoverAction_ShowIntegrationSettings" xml:space="preserve">
+    <value>Настройки модуля интеграции</value>
+  </data>
+  <data name="CoverTitle" xml:space="preserve">
+    <value>Модуль интеграции с внешними системами</value>
+  </data>
+  <data name="CoverAction_OutgoingRequests" xml:space="preserve">
+    <value>Исходящие запросы</value>
+  </data>
+  <data name="CoverAction_IncomingRequests" xml:space="preserve">
+    <value>Входящие запросы</value>
+  </data>
+  <data name="CoverDescription_IncomingRequests" xml:space="preserve">
+    <value>Журнал содержит все входящие сообщения из сторонних систем</value>
+  </data>
+  <data name="CoverDescription_OutgoingRequests" xml:space="preserve">
+    <value>Журнал содержит все исходящие сообщения к сторонним системам</value>
+  </data>
+  <data name="CoverDescription_ShowIntegrationSettings" xml:space="preserve">
+    <value>Ряд параметров для выполнения операций модуля интеграции со сторонними системами</value>
+  </data>
+  <data name="CoverDescription" xml:space="preserve">
+    <value>Модуль предназначен для работы с интеграционными сообщениями в любом направлении.</value>
+  </data>
+  <data name="CoverAction_ExternalConnection" xml:space="preserve">
+    <value>Подключения</value>
+  </data>
+  <data name="CoverDescription_ExternalConnection" xml:space="preserve">
+    <value>Справочник содержит аутентификационную информацию для подключения к сторонним системам</value>
+  </data>
+  <data name="JobDisplayName_0616564999694e9a9946dc9d86e710f6" xml:space="preserve">
+    <value>Интеграция. Очистка старых запросов</value>
+  </data>
+  <data name="JobDescription_0616564999694e9a9946dc9d86e710f6" xml:space="preserve">
+    <value>Очистка устаревших запросов</value>
+  </data>
+</root>

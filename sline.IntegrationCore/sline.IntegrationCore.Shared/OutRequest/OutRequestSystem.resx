@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Property_Answer" xml:space="preserve">
+    <value>Server answer</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>Outgoing request</value>
+  </data>
+  <data name="AccusativeDisplayName" xml:space="preserve">
+    <value>Outgoing request</value>
+  </data>
+  <data name="CollectionDisplayName" xml:space="preserve">
+    <value>Outgoing requests</value>
+  </data>
+  <data name="Property_IsSend" xml:space="preserve">
+    <value>Is send</value>
+  </data>
+  <data name="Property_SendDatetime" xml:space="preserve">
+    <value>Send datetime</value>
+  </data>
+  <data name="Property_IsDelivery" xml:space="preserve">
+    <value>Is delivery</value>
+  </data>
+  <data name="Property_DeliveryDatetime" xml:space="preserve">
+    <value>Delivery datetime</value>
+  </data>
+  <data name="Property_Body" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="Property_SendTo" xml:space="preserve">
+    <value>Receiver system</value>
+  </data>
+  <data name="Action_Resend" xml:space="preserve">
+    <value>Resend</value>
+  </data>
+  <data name="Action_ResendDescription" xml:space="preserve">
+    <value>Resend query</value>
+  </data>
+  <data name="Action_ResendHint" xml:space="preserve">
+    <value>Resend</value>
+  </data>
+  <data name="Action_ResendConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_ResendConfirmationDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Property_Method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="Property_MethodType" xml:space="preserve">
+    <value>Method type</value>
+  </data>
+  <data name="Property_Auth" xml:space="preserve">
+    <value>Auth</value>
+  </data>
+  <data name="Property_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="ControlGroup_11ab2d7fdf4f4bb48249b2c205d9b46c" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Property_Answers" xml:space="preserve">
+    <value>Answers from other systems</value>
+  </data>
+  <data name="Property_InstantResponse" xml:space="preserve">
+    <value>Instant response</value>
+  </data>
+  <data name="Property_EntityType" xml:space="preserve">
+    <value>Entity type</value>
+  </data>
+  <data name="Property_EntityId" xml:space="preserve">
+    <value>Entity Id</value>
+  </data>
+  <data name="Property_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Enum_Status_Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Property_Iteration" xml:space="preserve">
+    <value>Iteration</value>
+  </data>
+  <data name="Property_AsyncHandlerId" xml:space="preserve">
+    <value>Async Handler Id</value>
+  </data>
+  <data name="ControlGroup_027186c081b5474e837d89c8b2bb7d01" xml:space="preserve">
+    <value>Запрос</value>
+  </data>
+  <data name="ControlGroup_71c341f1ef1743b1a4fcca133c9e99a0" xml:space="preserve">
+    <value>Ответ</value>
+  </data>
+  <data name="ControlGroup_73c00dc945db46f5986010977d6fd386" xml:space="preserve">
+    <value>Параметры запроса</value>
+  </data>
+  <data name="ControlGroup_063c88b25c9544c59d3672a2293cab54" xml:space="preserve">
+    <value>Основное</value>
+  </data>
+  <data name="Enum_Status_InWork" xml:space="preserve">
+    <value>In work</value>
+  </data>
+  <data name="Property_StatusCode" xml:space="preserve">
+    <value>Status code</value>
+  </data>
+</root>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Property_Url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>Connection to external system</value>
+  </data>
+  <data name="AccusativeDisplayName" xml:space="preserve">
+    <value>Connection to external system</value>
+  </data>
+  <data name="CollectionDisplayName" xml:space="preserve">
+    <value>Connections to external system</value>
+  </data>
+  <data name="Property_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Property_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Property_AuthenticationType" xml:space="preserve">
+    <value>Authentication type</value>
+  </data>
+  <data name="Enum_AuthenticationType_Basic" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="Action_SetPassword" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="Action_SetPasswordDescription" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="Action_SetPasswordHint" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="Action_SetPasswordConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_SetPasswordConfirmationDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Ribbon_CustomCommands_81a253d86bd1451d9a794907e5732bc0" xml:space="preserve">
+    <value>Commands</value>
+  </data>
+  <data name="Property_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Property_Base64" xml:space="preserve">
+    <value>Base64</value>
+  </data>
+  <data name="Enum_AuthenticationType_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Action_AddMethod" xml:space="preserve">
+    <value>Add new method</value>
+  </data>
+  <data name="Action_AddMethodDescription" xml:space="preserve">
+    <value>Action adds a new method</value>
+  </data>
+  <data name="Action_AddMethodHint" xml:space="preserve">
+    <value>Add new method</value>
+  </data>
+  <data name="Action_AddMethodConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_AddMethodConfirmationDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_ShowMethods" xml:space="preserve">
+    <value>Show methods</value>
+  </data>
+  <data name="Action_ShowMethodsDescription" xml:space="preserve">
+    <value>Opens a list of methods bound to this connection</value>
+  </data>
+  <data name="Action_ShowMethodsHint" xml:space="preserve">
+    <value>Show methods</value>
+  </data>
+  <data name="Action_ShowMethodsConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_ShowMethodsConfirmationDescription" xml:space="preserve">
+    <value />
+  </data>
+</root>

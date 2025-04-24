@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RoleNameIntegration" xml:space="preserve">
+    <value>Ответственные за интеграцию</value>
+  </data>
+  <data name="DescriptionIntegration" xml:space="preserve">
+    <value>Пользователи, ответственные за интеграцию с внешними системами.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Задать пароль</value>
+  </data>
+  <data name="CheckingConnection" xml:space="preserve">
+    <value>Проверка подключения</value>
+  </data>
+  <data name="ErrorNotFoundIteration" xml:space="preserve">
+    <value>Отсутствует настройка интеграции "Количество итераций" в базе данных</value>
+  </data>
+  <data name="ErrorNotFoundBatch" xml:space="preserve">
+    <value>Отсутствует настройка интеграции "Размер пакета" в базе данных</value>
+  </data>
+  <data name="SettingDialogName" xml:space="preserve">
+    <value>Настройки модуля интеграции</value>
+  </data>
+  <data name="SettingDialogJob" xml:space="preserve">
+    <value>ФП "Интеграция. Отправка запросов"</value>
+  </data>
+  <data name="SettingDialogInterationName" xml:space="preserve">
+    <value>Количество итераций отправки</value>
+  </data>
+  <data name="SettingDialogBatchName" xml:space="preserve">
+    <value>Размер пакета</value>
+  </data>
+  <data name="SettingDialogDocumentsName" xml:space="preserve">
+    <value>Количество документов</value>
+  </data>
+  <data name="SettingDialogDebug" xml:space="preserve">
+    <value>Режим отладки</value>
+  </data>
+  <data name="SettingDialogBoolean" xml:space="preserve">
+    <value>Включено</value>
+  </data>
+  <data name="SettingDialogButtonUpdate" xml:space="preserve">
+    <value>Задать значения</value>
+  </data>
+  <data name="Person_PropsNotSpecified" xml:space="preserve">
+    <value>Не удалось синхронизировать персону (ID '{0}', ExtId '{1}'), так как во внешней системе не указан ИНН или СНИЛС</value>
+  </data>
+  <data name="Person_ManyEntitiesFound" xml:space="preserve">
+    <value>Не удалось синхронизировать персону c ID '{0}', ExtId '{1}'. В Directum RX найдено несколько персон с указанными ИНН и/или СНИЛС</value>
+  </data>
+  <data name="Person_NotCompleted" xml:space="preserve">
+    <value>Не удалось создать или синхронизировать персону c ID '{0}', ExtId '{1}'</value>
+  </data>
+  <data name="Entity_ValidationError" xml:space="preserve">
+    <value>Ошибки валидации при сохранении сущности с ID '{0}', ExtId '{1}': {2}</value>
+  </data>
+  <data name="Entity_SaveError" xml:space="preserve">
+    <value>Не удалось сохранить сущность с ID '{0}', ExtId '{1}' по причине '{2}'</value>
+  </data>
+  <data name="ExtLink_SaveError" xml:space="preserve">
+    <value>Не удалось сохранить внешнюю ссылку для сущности с ID '{0}', ExtId '{1}' по причине '{2}'</value>
+  </data>
+  <data name="Employee_PersonNotFound" xml:space="preserve">
+    <value>Не найдена персона с ID '{0}', ExtId '{1}' для сотрудника с ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Employee_DepartmentNotFound" xml:space="preserve">
+    <value>Не найдено подразделение c ID '{0}', ExtId '{1}' для сотрудника c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="JobTitle_DepartmentNotFound" xml:space="preserve">
+    <value>Не найдено подразделение с ID '{0}', ExtId '{1}' для должности c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Departments_HeadNotFound" xml:space="preserve">
+    <value>Не найдено вышестоящее подразделение с ID '{0}', ExtId '{1}' для подразделения c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Department_BusinessUnitNotFound" xml:space="preserve">
+    <value>Не найдена НОР с ID '{0}', ExtId '{1}' для подразделения c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Department_ManagerNotFound" xml:space="preserve">
+    <value>Не найден руководитель с ID '{0}', ExtId '{1}' для подразделения c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="BusinessUnit_CEONotFound" xml:space="preserve">
+    <value>Не найден руководитель с ID '{0}', ExtId '{1}' для НОР c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="BusinessUnit_HeadCompanyNotFound" xml:space="preserve">
+    <value>Не найдена вышестоящая организация c ID '{0}', ExtId '{1}' для НОР c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Employee_JobTitleNotFound" xml:space="preserve">
+    <value>Не найдена должность с ExtId '{0}' для сотрудника c ID '{1}', ExtId '{2}'</value>
+  </data>
+  <data name="SettingDialogIncRequests" xml:space="preserve">
+    <value>Фиксировать входящие запросы</value>
+  </data>
+  <data name="IncRequest_Name" xml:space="preserve">
+    <value>Синхронизация сущности "{0}" от {1}</value>
+  </data>
+  <data name="OutRequest_NullReqValues" xml:space="preserve">
+    <value>Ошибка: обязательные параметры не заполнены.</value>
+  </data>
+  <data name="OutRequest_EntityNotFound" xml:space="preserve">
+    <value>Не найден исходящий запрос с ID '{0}'</value>
+  </data>
+  <data name="OutRequest_Exception" xml:space="preserve">
+    <value>Ошибка: проверьте логи Directum RX для полной информации об исключении.</value>
+  </data>
+  <data name="OutRequest_OK" xml:space="preserve">
+    <value>Успешно</value>
+  </data>
+  <data name="OutRequest_WebException" xml:space="preserve">
+    <value>WebException. 
+{0}</value>
+  </data>
+  <data name="ExternalSystemNotSpecified" xml:space="preserve">
+    <value>Не указана система-получатель</value>
+  </data>
+  <data name="OutRequest_WebExceptionNoResponse" xml:space="preserve">
+    <value>WebException.
+Ошибка: {0}</value>
+  </data>
+  <data name="OutRequest_OtherException" xml:space="preserve">
+    <value>Необработанное исключение. 
+{0}</value>
+  </data>
+  <data name="Counterparty_RequiredFieldsError" xml:space="preserve">
+    <value>Не заполнены обязательные поля: {0}</value>
+  </data>
+  <data name="Setting_NoRights" xml:space="preserve">
+    <value>Вы не можете работать с настройками модуля</value>
+  </data>
+  <data name="SettingDialogADUse" xml:space="preserve">
+    <value>Использовать модуль интеграции с AD</value>
+  </data>
+  <data name="Dialog_No" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="Dialog_Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="Counterparty_ResponsibleNotFound" xml:space="preserve">
+    <value>Не найден ответственный сотрудник с ID '{0}', ExtId '{1}' для контрагента c ID '{2}', ExtId '{3}'</value>
+  </data>
+  <data name="Counterparty_RegionNotFound" xml:space="preserve">
+    <value>Не найден регион с кодом '{0}' для контрагента c ID '{1}', ExtId '{2}</value>
+  </data>
+  <data name="GroupGeneral" xml:space="preserve">
+    <value>Общее</value>
+  </data>
+  <data name="IncomingGroup" xml:space="preserve">
+    <value>Входящий поток</value>
+  </data>
+  <data name="OutgoingGroup" xml:space="preserve">
+    <value>Исходящий поток</value>
+  </data>
+  <data name="SettingDialogLifeTime" xml:space="preserve">
+    <value>Хранить запросы (в днях)</value>
+  </data>
+  <data name="Counterparty_HeadCompanyNotFound" xml:space="preserve">
+    <value>Не найдена головная организация с ID '{0}', ExtId '{1}' для контрагента c ID '{2}', ExtId '{3}</value>
+  </data>
+  <data name="BusinessUnitName" xml:space="preserve">
+    <value>Наша организация</value>
+  </data>
+  <data name="DepartmentName" xml:space="preserve">
+    <value>Подразделение</value>
+  </data>
+  <data name="PersonName" xml:space="preserve">
+    <value>Персона</value>
+  </data>
+  <data name="UpdateOutRequestName" xml:space="preserve">
+    <value>Передача ответа от сторонней системы по запросу с ID "{0}" от {1}</value>
+  </data>
+</root>
