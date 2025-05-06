@@ -230,4 +230,7 @@ Error: {0}</value>
   <data name="UpdateOutRequestName" xml:space="preserve">
     <value>Sending a response from an external system to a request with the ID "{0}" from {1}</value>
   </data>
+  <data name="Error_DialogValuesLessZero" xml:space="preserve">
+    <value>The value "{0}" cannot be less than or equal to zero.</value>
+  </data>
 </root>

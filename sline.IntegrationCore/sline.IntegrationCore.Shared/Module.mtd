@@ -1293,7 +1293,8 @@
     "BusinessUnitName",
     "DepartmentName",
     "PersonName",
-    "UpdateOutRequestName"
+    "UpdateOutRequestName",
+    "Error_DialogValuesLessZero"
   ],
   "ServerAssemblyName": "sline.IntegrationCore.Server",
   "ServerNamespace": "sline.IntegrationCore.Server",
