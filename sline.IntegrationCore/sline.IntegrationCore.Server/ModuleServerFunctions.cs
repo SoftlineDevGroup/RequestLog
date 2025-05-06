@@ -367,8 +367,6 @@ namespace sline.IntegrationCore.Server
         {
           if (outRequest.State.IsChanged)
             outRequest.Save();
-          
-          //syncResult.Hyperlink = Hyperlinks.Get(outRequest);
         }
         catch (Exception exc)
         {

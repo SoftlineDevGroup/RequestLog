@@ -46,7 +46,6 @@ namespace sline.IntegrationCore.Server
         role.Name = roleName;
         role.Description = roleDescription;
         role.Sid = roleGuid;
-        //role.IsSystem = true;
         role.Save();
       }
       else

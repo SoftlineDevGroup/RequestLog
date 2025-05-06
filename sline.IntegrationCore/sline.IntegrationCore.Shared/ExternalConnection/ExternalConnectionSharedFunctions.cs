@@ -15,7 +15,6 @@ namespace sline.IntegrationCore.Shared
     /// <param name="auth">Строка в base64, содержащая пару логин:пароль</param>
     public void SetConnectionAuth(string auth)
     {
-      //_obj.Save();
       _obj.Base64 = auth;
       _obj.Save();
     }
