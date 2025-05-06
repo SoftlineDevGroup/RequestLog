@@ -9,6 +9,10 @@ namespace sline.IntegrationCore.Shared
 {
   partial class ExternalConnectionFunctions
   {
+    /// <summary>
+    /// Установить аутентификационную информацию
+    /// </summary>
+    /// <param name="auth">Строка в base64, содержащая пару логин:пароль</param>
     public void SetConnectionAuth(string auth)
     {
       //_obj.Save();

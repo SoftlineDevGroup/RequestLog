@@ -9,6 +9,10 @@ namespace sline.IntegrationCore.Server
 {
   partial class BaseRequestFunctions
   {
+    /// <summary>
+    /// Универсальный метод для выбора сущности по типу сущности и ИД сущности
+    /// </summary>
+    /// <returns>Сущность IEntity</returns>
     [Remote]
     public Sungero.Domain.Shared.IEntity SelectEntityForOpen()
     {

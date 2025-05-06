@@ -799,22 +799,6 @@
       "StructureNamespace": "sline.IntegrationCore.Structures.Module"
     },
     {
-      "Name": "CreatedOutQuery",
-      "IsPublic": true,
-      "Properties": [
-        {
-          "Name": "Id",
-          "TypeFullName": "global::System.Int64"
-        },
-        {
-          "Name": "Status",
-          "IsNullable": true,
-          "TypeFullName": "global::System.String"
-        }
-      ],
-      "StructureNamespace": "sline.IntegrationCore.Structures.Module"
-    },
-    {
       "Name": "Data",
       "IsPublic": true,
       "Properties": [

@@ -9,13 +9,6 @@ namespace sline.IntegrationCore.Structures.Module
   
   #region Исходящие запросы
   
-  [Public]
-  partial class CreatedOutQuery
-  {
-    public long Id { get; set; }
-    public string Status { get; set; }
-  }
-  
   /// <summary>
   /// Сокращенная структура наполнения данными справочника OutRequest
   /// </summary>
@@ -46,6 +39,9 @@ namespace sline.IntegrationCore.Structures.Module
     public long? EntityId { get; set; }
     public string Name { get; set; }
   }
+  /// <summary>
+  /// Заголовки запроса
+  /// </summary>
   [Public]
   partial class Headers
   {
@@ -53,9 +49,12 @@ namespace sline.IntegrationCore.Structures.Module
     public string Value { get; set; }
   }
   
+  /// <summary>
+  /// Ответы внешних систем
+  /// </summary>
   [Public(Isolated=true)]
   partial class AnswersFromOtherSystems
-  {      
+  {
     public long Id { get; set; }
     public string SystemName {get; set; }
     public string Status { get; set; }
@@ -68,6 +67,9 @@ namespace sline.IntegrationCore.Structures.Module
 
   #region Входящие запросы
   
+  /// <summary>
+  /// Входящий запрос
+  /// </summary>
   [Public]
   partial class IncomingRequestDto
   {
@@ -83,6 +85,9 @@ namespace sline.IntegrationCore.Structures.Module
   
   #region Синхронизация оргструктуры
   
+  /// <summary>
+  /// Поиск сущности
+  /// </summary>
   [Public(Isolated=true)]
   partial class EntityModel
   {
@@ -91,6 +96,9 @@ namespace sline.IntegrationCore.Structures.Module
     public string ExtSystemId { get; set; }
   }
   
+  /// <summary>
+  /// Модель НОР
+  /// </summary>
   [Public(Isolated=true)]
   partial class BusinessUnitModel
   {
@@ -110,6 +118,9 @@ namespace sline.IntegrationCore.Structures.Module
     public string ObjectExtension { get; set; }
   }
   
+  /// <summary>
+  /// Модель подразделения
+  /// </summary>
   [Public(Isolated=true)]
   partial class DepartmentModel
   {
@@ -126,6 +137,9 @@ namespace sline.IntegrationCore.Structures.Module
     public string ObjectExtension { get; set; }
   }
   
+  /// <summary>
+  /// Модель сотрудника
+  /// </summary>
   [Public(Isolated=true)]
   partial class EmployeeModel
   {
@@ -147,6 +161,9 @@ namespace sline.IntegrationCore.Structures.Module
     public string ObjectExtension { get; set; }
   }
   
+  /// <summary>
+  /// Модель должности
+  /// </summary>
   [Public(Isolated=true)]
   partial class JobTitleModel
   {
@@ -161,6 +178,9 @@ namespace sline.IntegrationCore.Structures.Module
     public string ObjectExtension { get; set; }
   }
   
+  /// <summary>
+  /// Модель персоны
+  /// </summary>
   [Public(Isolated=true)]
   partial class PersonModel
   {
@@ -184,6 +204,9 @@ namespace sline.IntegrationCore.Structures.Module
   
   #region Контрагенты
   
+  /// <summary>
+  /// Модель контрагента
+  /// </summary>
   [Public(Isolated=true)]
   partial class CounterpartyModel
   {
@@ -248,6 +271,9 @@ namespace sline.IntegrationCore.Structures.Module
     public List<sline.IntegrationCore.Structures.Module.ISyncResultMessage> Messages { get; set; }
   }
   
+  /// <summary>
+  /// Сообщения синхронизации
+  /// </summary>
   [Public(Isolated=true)]
   partial class SyncResultMessage
   {
