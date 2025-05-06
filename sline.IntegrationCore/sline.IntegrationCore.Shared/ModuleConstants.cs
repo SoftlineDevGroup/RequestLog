@@ -24,35 +24,69 @@ namespace sline.IntegrationCore.Constants
     [Sungero.Core.Public]
     public static class IntegrationParams
     {
-      // параметр Количество итераций
+      /// <summary>
+      /// Параметр "Количество итераций отправки"
+      /// </summary>
       public const string IterationMaxCountParamName = "IntCore_IterationMaxCount";
+      /// <summary>
+      /// Значение параметра "Количество итераций отправки"
+      /// </summary>
       public const string IterationMaxCountParamValue = "5";
       
-      // параметр Размер пакета
+      /// <summary>
+      /// Параметр "Размер пакета"
+      /// </summary>
       public const string AsyncBatchParamName = "IntCore_BatchCount";
+      /// <summary>
+      /// Значение параметра "Размер пакета"
+      /// </summary>
       public const string AsyncBatchParamValue = "100";
       
-      // параметр Отладочный режим
+      /// <summary>
+      /// Параметр "Режим отладки"
+      /// </summary>
       public const string DebugModeParamName = "IntCore_DebugMode";
+      /// <summary>
+      /// Значение параметра "Режим отладки"
+      /// </summary>
       public const string DebugModeParamValue = "false";
       
-      // параметр Фиксация входящих запросов
+      /// <summary>
+      /// Параметр "Фиксировать входящие запросы"
+      /// </summary>
       public const string IncomingRequestParamName = "IntCore_LogIncomingRequest";
+      /// <summary>
+      /// Значение параметра "Фиксировать входящие запросы"
+      /// </summary>
       public const string IncomingRequestParamValue = "false";
       
-      // параметр Время жизни запросов
+      /// <summary>
+      /// Параметр "Хранить запросы (в днях)"
+      /// </summary>
       public const string LifeTimeParamName = "IntCore_LifeTime";
+      /// <summary>
+      /// Значение параметра "Хранить запросы (в днях)"
+      /// </summary>
       public const string LifeTimeParamValue = "14";
     }
     
     /// <summary>
     /// Результат синхронизации сущности
-    /// </summary>     
+    /// </summary>
     [Sungero.Core.Public]
     public static class SyncResult
     {
+      /// <summary>
+      /// Успешно
+      /// </summary>
       public const string Success = "Success";
+      /// <summary>
+      /// Есть замечания
+      /// </summary>
       public const string Warning = "Warning";
+      /// <summary>
+      /// Ошибка
+      /// </summary>
       public const string Error = "Error";
     }
     
@@ -62,7 +96,13 @@ namespace sline.IntegrationCore.Constants
     [Sungero.Core.Public]
     public static class MessageType
     {
+      /// <summary>
+      /// Критичное
+      /// </summary>
       public const string Critical = "Critical";
+      /// <summary>
+      /// Информационное
+      /// </summary>
       public const string Info = "Info";
     }
     
@@ -72,8 +112,17 @@ namespace sline.IntegrationCore.Constants
     [Sungero.Core.Public]
     public static class CounterpartyType
     {
+      /// <summary>
+      /// Персона
+      /// </summary>
       public const string Person = "Person";
+      /// <summary>
+      /// Банк
+      /// </summary>
       public const string Bank = "Bank";
+      /// <summary>
+      /// Организация
+      /// </summary>
       public const string Company = "Company";
     }
   }
