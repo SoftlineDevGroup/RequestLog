@@ -22,8 +22,10 @@ namespace sline.IntegrationCore.Server
     #region Исходящие запросы
     
     /// <summary>
-    /// Запуск вызова в стороннюю систему
+    /// Запуск вызова во внешнюю систему
     /// </summary>
+    /// <param name="outRequest">Исходящий запрос</param>
+    /// <returns>Исходящий запрос с заполненными данными об ответе (если немедленный вызов)</returns>
     [Public]
     public virtual sline.IntegrationCore.IOutRequest SendRequest(sline.IntegrationCore.IOutRequest outRequest)
     {
@@ -165,21 +167,23 @@ namespace sline.IntegrationCore.Server
     {
       return statusCode == HttpStatusCode.OK || statusCode == HttpStatusCode.Accepted;
     }
+    
     /// <summary>
     ///  Установить признак - Отправлен.
     /// </summary>
-    /// <param name="outRequest"></param>
+    /// <param name="outRequest">Исходящий запрос</param>
     public virtual void SetRequestSended(IOutRequest outRequest)
     {
       outRequest.IsSend = true;
       outRequest.Iteration++;
       outRequest.SendDatetime = Calendar.Now;
     }
+    
     /// <summary>
     ///  Установить признак - Доставлен, и записать ответ сервера.
     /// </summary>
-    /// <param name="outRequest"></param>
-    /// <param name="answer"></param>
+    /// <param name="outRequest">Исходящий запрос</param>
+    /// <param name="answer">Ответ сервера</param>
     public virtual void SetRequestDelivered(IOutRequest outRequest, string answer)
     {
       outRequest.Answer = answer;
@@ -193,8 +197,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Создать запись журнала исходящих запросов, чтобы использовать его Id. Запись создается закрытой.
     /// </summary>
-    /// <param name="data">Краткая структура с данными</param>
-    /// <returns>Id</returns>
+    /// <param name="shortData">Краткая структура с данными</param>
+    /// <returns>Id записи</returns>
     [Public]
     public virtual long CreateOutRequest(Structures.Module.IShortData shortData)
     {
@@ -238,7 +242,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Получить или создать запись журнала исходящих запросов. При передаче Id, будет обновлена существующая запись. Иначе - создана новая.
     /// </summary>
-    /// <param name="data">Структура с данными</param>
+    /// <param name="shortData">Полная структура с данными</param>
+    /// <returns>Id записи</returns>
     [Public]
     public virtual sline.IntegrationCore.IOutRequest GetOrCreateOutRequest(Structures.Module.IData data)
     {
@@ -308,19 +313,19 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Установить подключение и метод
     /// </summary>
+    /// <param name="outRequest">Исходящий запрос</param>
+    /// <param name="data">Полная структура с данными</param>
     public virtual void SetSystemAndMethod(sline.IntegrationCore.IOutRequest outRequest, Structures.Module.IData data)
     {
       outRequest.SendTo = sline.IntegrationCore.ExternalConnections.GetAll(x => Equals(x.Code, data.SystemCode)).FirstOrDefault();
       outRequest.Method = sline.IntegrationCore.ExternalMethods.GetAll(x => Equals(x.Code, data.MethodCode)).FirstOrDefault();
     }
+    
     /// <summary>
     /// Интеграционный метод обновления существующей записи исходящих запросов.
     /// </summary>
-    /// <param name="Id">Id записи журнала исходящих запросов</param>
-    /// <param name="SystemName">Имя (идентификатор) сторонней системы</param>
-    /// <param name="Status">Статус запроса</param>
-    /// <param name="Answer">Ответ сторонней системы</param>
-    /// <param name="DateTime">Дата и время ответа</param>
+    /// <param name="answer">Структура ответа</param>
+    /// <returns>Структура результата синхронизации</returns>
     [Public(WebApiRequestType = RequestType.Post)]
     public virtual Structures.Module.ISyncResult UpdateOutRequest(Structures.Module.IAnswersFromOtherSystems answer)
     {
@@ -388,7 +393,7 @@ namespace sline.IntegrationCore.Server
       if (captureRequest)
       {
         string date = now.ToString("dd.MM.yyyy HH:mm:ss");
-        CreateIncomingRequest(sline.IntegrationCore.Resources.UpdateOutRequestNameFormat(answer.Id, date), outRequest?.Id, 
+        CreateIncomingRequest(sline.IntegrationCore.Resources.UpdateOutRequestNameFormat(answer.Id, date), outRequest?.Id,
                               outRequest?.GetType().GetFinalType().GetTypeGuid().ToString(), incomingString, answerString);
       }
       
@@ -402,13 +407,21 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Создание входящего запроса без сохранения
     /// </summary>
+    /// <returns>Запись входящего запроса</returns>
     public virtual IIncRequest CreateIncomingRequest()
     {
       return IncRequests.Create();
     }
+    
     /// <summary>
     /// Создание входящего запроса на основании параметров метода для сущностей без внешних кодов
     /// </summary>
+    /// <param name="name">Наименование записи</param>
+    /// <param name="id">ИД сущности Директум</param>
+    /// <param name="entityType">Guid типа сущности Директум</param>
+    /// <param name="body">Тело запроса</param>
+    /// <param name="answer">Тело ответа</param>
+    /// <returns>Запись входящего запроса</returns>
     public virtual IIncRequest CreateIncomingRequest(string name, long? id, string entityType, string body, string answer)
     {
       var request = IncRequests.Create();
@@ -427,9 +440,12 @@ namespace sline.IntegrationCore.Server
       
       return request;
     }
+    
     /// <summary>
     /// Создание входящего запроса на основании структуры (с сохранением)
     /// </summary>
+    /// <param name="incRequestDto">Структура входящего запроса</param>
+    /// <returns>Сущность входящего запроса</returns>
     public virtual IIncRequest CreateIncomingRequest(Structures.Module.IIncomingRequestDto incRequestDto)
     {
       var request = IncRequests.Create();
@@ -450,9 +466,16 @@ namespace sline.IntegrationCore.Server
       
       return request;
     }
+    
     /// <summary>
     /// Создание входящего запроса на основании параметров метода (с сохранением)
     /// </summary>
+    /// <param name="name">Наименование записи</param>
+    /// <param name="entityType">Guid типа сущности Директум</param>
+    /// <param name="entityModel">Структура поиска сущности</param>
+    /// <param name="body">Тело запроса</param>
+    /// <param name="answer">Тело ответа</param>
+    /// <returns>Сущность входящего запроса</returns>
     public virtual IIncRequest CreateIncomingRequest(string name, string entityType, sline.IntegrationCore.Structures.Module.IEntityModel entityModel, string body, string answer)
     {
       var request = IncRequests.Create();
@@ -474,7 +497,6 @@ namespace sline.IntegrationCore.Server
       return request;
     }
     
-    
     #endregion
     
     #region Организационно-штатная структура
@@ -484,6 +506,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Синхронизация должности
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <returns>Структура результата синхронизации</returns>
     [Public(WebApiRequestType = RequestType.Post)]
     public virtual Structures.Module.ISyncResult SyncJobTitle(Structures.Module.IJobTitleModel jobTitleModel)
     {
@@ -523,9 +547,14 @@ namespace sline.IntegrationCore.Server
       
       return syncResult;
     }
+    
     /// <summary>
     /// Создание/обновление должности
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Должность</returns>
     public virtual IJobTitle CreateOrUpdateJobTitle(Structures.Module.IJobTitleModel jobTitleModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IJobTitle jobTitle = GetOrCreateJobTitle(jobTitleModel, syncResult, isDebug);
@@ -534,9 +563,14 @@ namespace sline.IntegrationCore.Server
       
       return jobTitle;
     }
+    
     /// <summary>
     /// Получение или создание должности
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Должность</returns>
     public virtual IJobTitle GetOrCreateJobTitle(Structures.Module.IJobTitleModel jobTitleModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IJobTitle jobTitle = null;
@@ -551,9 +585,14 @@ namespace sline.IntegrationCore.Server
       
       return jobTitle;
     }
+    
     /// <summary>
     /// Заполнение свойств должности
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="jobTitle">Должность</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetJobTitleProperties(Structures.Module.IJobTitleModel jobTitleModel, Structures.Module.ISyncResult syncResult, IJobTitle jobTitle, bool isDebug)
     {
       if (jobTitle == null)
@@ -572,9 +611,14 @@ namespace sline.IntegrationCore.Server
       ProcessJobTitleDepartment(jobTitleModel, syncResult, jobTitle, isDebug);
       ProcessObjectExtension(jobTitleModel, syncResult, jobTitle, isDebug);
     }
+    
     /// <summary>
     /// Обработка подразделения для должности
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="jobTitle">Должность</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessJobTitleDepartment(Structures.Module.IJobTitleModel jobTitleModel, Structures.Module.ISyncResult syncResult, IJobTitle jobTitle, bool isDebug)
     {
       var department = GetJobTitleDepartment(jobTitleModel, syncResult, isDebug);
@@ -590,9 +634,14 @@ namespace sline.IntegrationCore.Server
       if (jobTitle.Department != department)
         jobTitle.Department = department;
     }
+    
     /// <summary>
     /// Получение подразделения для должности
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Должность</returns>
     public virtual IDepartment GetJobTitleDepartment(Structures.Module.IJobTitleModel jobTitleModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IDepartment department = null;
@@ -607,16 +656,26 @@ namespace sline.IntegrationCore.Server
       
       return department;
     }
+    
     /// <summary>
     /// Обработка кастомных свойств
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="jobTitle">Должность</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessObjectExtension(Structures.Module.IJobTitleModel jobTitleModel, Structures.Module.ISyncResult syncResult, IJobTitle jobTitle, bool isDebug)
     {
       // для реализации в перекрытиях
     }
+    
     /// <summary>
     /// Сохранение должности
     /// </summary>
+    /// <param name="jobTitleModel">Структура должности</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="jobTitle">Должность</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SaveJobTitle(Structures.Module.IJobTitleModel jobTitleModel, Structures.Module.ISyncResult syncResult, IJobTitle jobTitle, bool isDebug)
     {
       if (jobTitle == null)
@@ -653,6 +712,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Синхронизация персоны
     /// </summary>
+    /// <param name="personModel">Структура персоны</param>
+    /// <returns>Структура результата синхронизации</returns>
     [Public(WebApiRequestType = RequestType.Post)]
     public virtual Structures.Module.ISyncResult SyncPerson(Structures.Module.IPersonModel personModel)
     {
@@ -693,9 +754,14 @@ namespace sline.IntegrationCore.Server
       
       return syncResult;
     }
+    
     /// <summary>
     /// Создание/обновление персоны
     /// </summary>
+    /// <param name="personModel">Структура персоны</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Персона</returns>
     public virtual IPerson CreateOrUpdatePerson(Structures.Module.IPersonModel personModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IPerson person = GetOrCreatePerson(personModel, syncResult, isDebug);
@@ -704,9 +770,14 @@ namespace sline.IntegrationCore.Server
       
       return person;
     }
+    
     /// <summary>
     /// Получить или создать персону
     /// </summary>
+    /// <param name="personModel">Структура персоны</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Персона</returns>
     public virtual IPerson GetOrCreatePerson(Structures.Module.IPersonModel personModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IPerson person = null;
@@ -721,9 +792,14 @@ namespace sline.IntegrationCore.Server
       
       return person;
     }
+    
     /// <summary>
     /// Заполнение свойств персоны
     /// </summary>
+    /// <param name="personModel">Структура персоны</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="person">Персона</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetPersonProperties(Structures.Module.IPersonModel personModel, Structures.Module.ISyncResult syncResult, IPerson person, bool isDebug)
     {
       if (person == null)
@@ -759,9 +835,14 @@ namespace sline.IntegrationCore.Server
       
       ProcessObjectExtension(personModel, syncResult, person, isDebug);
     }
+    
     /// <summary>
     /// Обработка ИНН персоны из ОШС
     /// </summary>
+    /// <param name="personModel">Структура персоны</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="person">Персона</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessPersonTIN(Structures.Module.IPersonModel personModel, Structures.Module.ISyncResult syncResult, IPerson person, bool isDebug)
     {
       var message = CheckTIN(personModel.TIN, false);
@@ -775,9 +856,12 @@ namespace sline.IntegrationCore.Server
       else if (person.TIN != personModel.TIN)
         person.TIN = personModel.TIN;
     }
+    
     /// <summary>
     /// Обработка пола персоны
     /// </summary>
+    /// <param name="extSex">Внешнее значение пола</param>
+    /// <returns>Пол (значение перечисления)</returns>
     public virtual Enumeration ProcessPersonSex(string extSex)
     {
       var sex = Sungero.Parties.Person.Sex.Male;
@@ -795,16 +879,26 @@ namespace sline.IntegrationCore.Server
       
       return sex;
     }
+    
     /// <summary>
     /// Обработка кастомных свойств
     /// </summary>
+    /// <param name="personModel">Структура персоны</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="person">Персона</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessObjectExtension(Structures.Module.IPersonModel personModel, Structures.Module.ISyncResult syncResult, IPerson person, bool isDebug)
     {
       // для реализации в перекрытиях
     }
+    
     /// <summary>
     /// Сохранение персоны
     /// </summary>
+    /// <param name="personModel">Структура персоны</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="person">Персона</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SavePerson(Structures.Module.IPersonModel personModel, Structures.Module.ISyncResult syncResult, IPerson person, bool isDebug)
     {
       if (person == null)
@@ -843,6 +937,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Синхронизация подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <returns>Структура результата синхронизации</returns>
     [Public(WebApiRequestType = RequestType.Post)]
     public virtual Structures.Module.ISyncResult SyncDepartment(Structures.Module.IDepartmentModel departmentModel)
     {
@@ -883,9 +979,14 @@ namespace sline.IntegrationCore.Server
       
       return syncResult;
     }
+    
     /// <summary>
     /// Создание/обновление подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Подразделение</returns>
     public virtual IDepartment CreateOrUpdateDepartment(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IDepartment department = GetOrCreateDepartment(departmentModel, syncResult, isDebug);
@@ -894,9 +995,14 @@ namespace sline.IntegrationCore.Server
       
       return department;
     }
+    
     /// <summary>
     /// Получение или создание подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Подразделение</returns>
     public virtual IDepartment GetOrCreateDepartment(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IDepartment department = null;
@@ -911,9 +1017,14 @@ namespace sline.IntegrationCore.Server
       
       return department;
     }
+    
     /// <summary>
     /// Заполнение свойств подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="department">Подразделение</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetDepartmentProperties(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, IDepartment department, bool isDebug)
     {
       if (department == null)
@@ -934,9 +1045,14 @@ namespace sline.IntegrationCore.Server
       ProcessManager(departmentModel, syncResult, department, isDebug);
       ProcessObjectExtension(departmentModel, syncResult, department, isDebug);
     }
+    
     /// <summary>
     /// Обработка вышестоящего подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="department">Подразделение</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessHeadOffice(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, IDepartment department, bool isDebug)
     {
       var headOffice = GetHeadOffice(departmentModel, syncResult, isDebug);
@@ -954,9 +1070,14 @@ namespace sline.IntegrationCore.Server
       if (department.HeadOffice != headOffice)
         department.HeadOffice = headOffice;
     }
+    
     /// <summary>
     /// Получение вышестоящего подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Вышестоящее подразделение</returns>
     public virtual IDepartment GetHeadOffice(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       // обработка вышестоящего подразделения
@@ -972,9 +1093,14 @@ namespace sline.IntegrationCore.Server
       
       return headOffice;
     }
+    
     /// <summary>
     /// Обработка НОР для подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="department">Подразделение</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessBusinessUnit(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, IDepartment department, bool isDebug)
     {
       var businessUnit = GetBusinessUnit(departmentModel, syncResult, isDebug);
@@ -991,9 +1117,14 @@ namespace sline.IntegrationCore.Server
       if (department.BusinessUnit != businessUnit)
         department.BusinessUnit = businessUnit;
     }
+    
     /// <summary>
     /// Получение НОР для подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Наша организация</returns>
     public virtual IBusinessUnit GetBusinessUnit(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       // обработка НОР
@@ -1009,9 +1140,14 @@ namespace sline.IntegrationCore.Server
       
       return businessUnit;
     }
+    
     /// <summary>
     /// Обработка руководителя для подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="department">Подразделение</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessManager(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, IDepartment department, bool isDebug)
     {
       var manager = GetManager(departmentModel, syncResult, isDebug);
@@ -1027,9 +1163,14 @@ namespace sline.IntegrationCore.Server
       if (department.Manager != manager)
         department.Manager = manager;
     }
+    
     /// <summary>
     /// Получение руководителя для подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Сотрудник</returns>
     public virtual IEmployee GetManager(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       // обработка руководителя
@@ -1045,16 +1186,26 @@ namespace sline.IntegrationCore.Server
       
       return manager;
     }
+    
     /// <summary>
     /// Обработка кастомных свойств
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="department">Подразделение</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessObjectExtension(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, IDepartment department, bool isDebug)
     {
       // для реализации в перекрытиях
     }
+    
     /// <summary>
     /// Сохранение подразделения
     /// </summary>
+    /// <param name="departmentModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="department">Подразделение</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SaveDepartment(Structures.Module.IDepartmentModel departmentModel, Structures.Module.ISyncResult syncResult, IDepartment department, bool isDebug)
     {
       if (department == null)
@@ -1091,6 +1242,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Синхронизация НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура НОР</param>
+    /// <returns>Структура результата синхронизации</returns>
     [Public(WebApiRequestType = RequestType.Post)]
     public virtual Structures.Module.ISyncResult SyncBusinessUnit(Structures.Module.IBusinessUnitModel businessUnitModel)
     {
@@ -1135,9 +1288,14 @@ namespace sline.IntegrationCore.Server
       
       return syncResult;
     }
+    
     /// <summary>
     /// Создание/обновление НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура НОР</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Наша организация</returns>
     public virtual IBusinessUnit CreateOrUpdateBusinessUnit(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IBusinessUnit businessUnit = GetOrCreateBusinessUnit(businessUnitModel, syncResult, isDebug);
@@ -1146,9 +1304,14 @@ namespace sline.IntegrationCore.Server
       
       return businessUnit;
     }
+    
     /// <summary>
     /// Получение или создание НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура НОР</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Наша организация</returns>
     public virtual IBusinessUnit GetOrCreateBusinessUnit(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IBusinessUnit businessUnit = null;
@@ -1163,9 +1326,14 @@ namespace sline.IntegrationCore.Server
       
       return businessUnit;
     }
+    
     /// <summary>
     /// Заполнение свойств НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="businessUnit">НОР</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetBusinessUnitProperties(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, IBusinessUnit businessUnit, bool isDebug)
     {
       if (businessUnit == null)
@@ -1194,9 +1362,14 @@ namespace sline.IntegrationCore.Server
       ProcessCEO(businessUnitModel, syncResult, businessUnit, isDebug);
       ProcessObjectExtension(businessUnitModel, syncResult, businessUnit, isDebug);
     }
+    
     /// <summary>
     /// Обработка руководителя НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="businessUnit">НОР</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessCEO(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, IBusinessUnit businessUnit, bool isDebug)
     {
       var CEO = GetCEO(businessUnitModel, syncResult, isDebug);
@@ -1213,9 +1386,14 @@ namespace sline.IntegrationCore.Server
       if (businessUnit.CEO != CEO)
         businessUnit.CEO = CEO;
     }
+    
     /// <summary>
     /// Получение руководителя НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура НОР</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Сотрудник</returns>
     public virtual IEmployee GetCEO(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IEmployee CEO = null;
@@ -1230,9 +1408,14 @@ namespace sline.IntegrationCore.Server
       
       return CEO;
     }
+    
     /// <summary>
     /// Обработка вышестоящей НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="businessUnit">НОР</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessHeadBusinessUnit(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, IBusinessUnit businessUnit, bool isDebug)
     {
       var headCompany = GetHeadBusinessUnit(businessUnitModel, syncResult, isDebug);
@@ -1249,9 +1432,14 @@ namespace sline.IntegrationCore.Server
       if (businessUnit.HeadCompany != headCompany)
         businessUnit.HeadCompany = headCompany;
     }
+    
     /// <summary>
     /// Получение вышестоящей НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура НОР</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Наша организация</returns>
     public virtual IBusinessUnit GetHeadBusinessUnit(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IBusinessUnit headCompany = null;
@@ -1266,9 +1454,14 @@ namespace sline.IntegrationCore.Server
       
       return headCompany;
     }
+    
     /// <summary>
     /// Обработка ИНН
     /// </summary>
+    /// <param name="businessUnitModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="businessUnit">НОР</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessTIN(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, IBusinessUnit businessUnit, bool isDebug)
     {
       var errorMessage = this.CheckTIN(businessUnitModel.TIN, true);
@@ -1282,9 +1475,14 @@ namespace sline.IntegrationCore.Server
       else if (businessUnit.TIN != businessUnitModel.TIN)
         businessUnit.TIN = businessUnitModel.TIN;
     }
+    
     /// <summary>
     /// Обработка КПП
     /// </summary>
+    /// <param name="businessUnitModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="businessUnit">НОР</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessTRRC(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, IBusinessUnit businessUnit, bool isDebug)
     {
       var errorMessage = this.CheckTRRC(businessUnitModel.TRRC);
@@ -1298,16 +1496,26 @@ namespace sline.IntegrationCore.Server
       else if (businessUnit.TRRC != businessUnitModel.TRRC)
         businessUnit.TRRC = businessUnitModel.TRRC;
     }
+    
     /// <summary>
     /// Обработка кастомных свойств
     /// </summary>
+    /// <param name="businessUnitModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="businessUnit">НОР</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessObjectExtension(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, IBusinessUnit businessUnit, bool isDebug)
     {
       // для реализации в перекрытиях
     }
+    
     /// <summary>
     /// Сохранение НОР
     /// </summary>
+    /// <param name="businessUnitModel">Структура подразделения</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="businessUnit">НОР</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SaveBusinessUnit(Structures.Module.IBusinessUnitModel businessUnitModel, Structures.Module.ISyncResult syncResult, IBusinessUnit businessUnit, bool isDebug)
     {
       if (businessUnit == null)
@@ -1344,6 +1552,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Синхронизирует сотрудника из внешней системы.
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <returns>Структура результата синхронизации</returns>
     [Public(WebApiRequestType = RequestType.Post)]
     public virtual Structures.Module.ISyncResult SyncEmployee(Structures.Module.IEmployeeModel employeeModel)
     {
@@ -1384,9 +1594,14 @@ namespace sline.IntegrationCore.Server
       
       return syncResult;
     }
+    
     /// <summary>
     /// Создает/обновляет сущность сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Сотрудник</returns>
     public virtual IEmployee CreateOrUpdateEmployee(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IEmployee employee = GetOrCreateEmployee(employeeModel, syncResult, isDebug);
@@ -1395,9 +1610,14 @@ namespace sline.IntegrationCore.Server
       
       return employee;
     }
+    
     /// <summary>
     /// Получение или создание сотрудника.
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Сотрудник</returns>
     public virtual IEmployee GetOrCreateEmployee(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IEmployee employee = null;
@@ -1412,9 +1632,14 @@ namespace sline.IntegrationCore.Server
       
       return employee;
     }
+    
     /// <summary>
     /// Заполнение свойств сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetEmployeeProperties(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       if (employee == null)
@@ -1441,9 +1666,14 @@ namespace sline.IntegrationCore.Server
       ProcessEmail(employeeModel, syncResult, employee, isDebug);
       ProcessObjectExtension(employeeModel, syncResult, employee, isDebug);
     }
+    
     /// <summary>
     /// Обработка персоны сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public void ProcessPerson(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       IPerson person = GetPerson(employeeModel, syncResult, isDebug);
@@ -1458,9 +1688,14 @@ namespace sline.IntegrationCore.Server
       else if (employee.Person != person)
         employee.Person = person;
     }
+    
     /// <summary>
     /// Обработка подразделения сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public void ProcessDepartment(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       IDepartment department = GetDepartment(employeeModel, syncResult, isDebug);
@@ -1475,9 +1710,14 @@ namespace sline.IntegrationCore.Server
       else if (employee.Department != department)
         employee.Department = department;
     }
+    
     /// <summary>
     /// Обработка должности сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public void ProcessJobTitle(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       IJobTitle jobTitle = GetJobTitle(employeeModel, syncResult, isDebug);
@@ -1493,9 +1733,14 @@ namespace sline.IntegrationCore.Server
       if (employee.JobTitle != jobTitle)
         employee.JobTitle = jobTitle;
     }
+    
     /// <summary>
     /// Получение должности для сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Должность</returns>
     public virtual IJobTitle GetJobTitle(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IJobTitle jobTitle = null;
@@ -1510,9 +1755,14 @@ namespace sline.IntegrationCore.Server
       
       return jobTitle;
     }
+    
     /// <summary>
     /// Получение персоны для сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Персона</returns>
     public virtual IPerson GetPerson(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IPerson person = null;
@@ -1527,9 +1777,14 @@ namespace sline.IntegrationCore.Server
       
       return person;
     }
+    
     /// <summary>
     /// Получение подразделения для сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Подразделение</returns>
     public virtual IDepartment GetDepartment(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IDepartment department = null;
@@ -1544,9 +1799,14 @@ namespace sline.IntegrationCore.Server
       
       return department;
     }
+    
     /// <summary>
-    /// Проверка почтового адреса для сотрудника
+    /// Обработка почтового адреса для сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessEmail(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       if (!string.IsNullOrWhiteSpace(employeeModel.Email))
@@ -1575,9 +1835,14 @@ namespace sline.IntegrationCore.Server
       else
         employee.Email = null;
     }
+    
     /// <summary>
-    /// Проверка признаков уведомлений
+    /// Обработка признаков уведомлений
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessNotifications(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       bool notify = employeeModel.NeedNotifyExpiredAssignments.GetValueOrDefault();
@@ -1592,16 +1857,26 @@ namespace sline.IntegrationCore.Server
       if (employee.NeedNotifyAssignmentsSummary != notify)
         employee.NeedNotifyAssignmentsSummary = notify;
     }
+    
     /// <summary>
     /// Обработка кастомных свойств
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessObjectExtension(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       // для реализации в перекрытиях
     }
+    
     /// <summary>
     /// Сохранение сотрудника
     /// </summary>
+    /// <param name="employeeModel">Структура сотрудника</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="employee">Сотрудник</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SaveEmployee(Structures.Module.IEmployeeModel employeeModel, Structures.Module.ISyncResult syncResult, IEmployee employee, bool isDebug)
     {
       if (employee == null)
@@ -1640,6 +1915,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Синхронизация контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <returns>Структура результата синхронизации</returns>
     [Public(WebApiRequestType = RequestType.Post)]
     public virtual Structures.Module.ISyncResult SyncCounterparty(Structures.Module.ICounterpartyModel counterpartyModel)
     {
@@ -1684,9 +1961,13 @@ namespace sline.IntegrationCore.Server
 
       return syncResult;
     }
+    
     /// <summary>
     /// Проверка обязательных свойств
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void CheckRequiredValues(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       if (string.IsNullOrWhiteSpace(counterpartyModel.EntityType))
@@ -1697,9 +1978,14 @@ namespace sline.IntegrationCore.Server
         AddMessage(syncResult, Constants.Module.MessageType.Critical, message);
       }
     }
+    
     /// <summary>
     /// Создание/обновление контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Контрагент</returns>
     public virtual ICounterparty CreateOrUpdateCounterparty(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       ICounterparty counterparty = null;
@@ -1718,9 +2004,13 @@ namespace sline.IntegrationCore.Server
       
       return counterparty;
     }
+    
     /// <summary>
     /// Получить/создать организацию-контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <returns>Организация</returns>
     public virtual ICompany GetOrCreateCompany(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult)
     {
       ICompany company = null;
@@ -1735,9 +2025,13 @@ namespace sline.IntegrationCore.Server
       
       return company;
     }
+    
     /// <summary>
     /// Получить/создать банк-контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <returns>Банк</returns>
     public virtual IBank GetOrCreateBank(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult)
     {
       IBank bank = null;
@@ -1752,9 +2046,13 @@ namespace sline.IntegrationCore.Server
       
       return bank;
     }
+    
     /// <summary>
     /// Получить/создать персону-контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <returns>Персона</returns>
     public virtual IPerson GetOrCreatePerson(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult)
     {
       IPerson person = null;
@@ -1769,9 +2067,14 @@ namespace sline.IntegrationCore.Server
       
       return person;
     }
+    
     /// <summary>
     /// Заполнить свойства контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetCounterpartyProperties(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       SetCommonProperties(counterpartyModel, syncResult, counterparty, isDebug);
@@ -1792,9 +2095,14 @@ namespace sline.IntegrationCore.Server
       ProcessResponsible(counterpartyModel, syncResult, counterparty, isDebug);
       ProcessObjectExtension(counterpartyModel, syncResult, counterparty, isDebug);
     }
+    
     /// <summary>
-    /// Заполнить свойства организации-контрагента
+    /// Заполнить свойства, общие для контрагентов
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetCommonProperties(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       if (counterparty.ExternalId != counterpartyModel.Entity?.ExternalId)
@@ -1834,9 +2142,14 @@ namespace sline.IntegrationCore.Server
       if (counterparty.Code != counterpartyModel.Code)
         counterparty.Code = counterpartyModel.Code;
     }
+    
     /// <summary>
     /// Заполнить свойства организации-контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetCompanyProperties(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       var company = Companies.As(counterparty);
@@ -1844,32 +2157,43 @@ namespace sline.IntegrationCore.Server
       if (company.LegalName != counterpartyModel.LegalName)
         company.LegalName = counterpartyModel.LegalName;
       
-      ProcessCompanyTIN(counterpartyModel, syncResult, company, isDebug);
+      ProcessCounterpartyTIN(counterpartyModel, syncResult, company, isDebug);
       ProcessCompanyTRRC(counterpartyModel, syncResult, company, isDebug);
       ProcessHeadCompany(counterpartyModel, syncResult, company, isDebug);
     }
+    
     /// <summary>
     /// Заполнить свойства банка-контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetBankProperties(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       var bank = Banks.As(counterparty);
       
-      ProcessCompanyTIN(counterpartyModel, syncResult, counterparty, isDebug);
+      ProcessCounterpartyTIN(counterpartyModel, syncResult, counterparty, isDebug);
+      ProcessCompanyTRRC(counterpartyModel, syncResult, counterparty, isDebug);
       ProcessBIC(counterpartyModel, syncResult, bank, isDebug);
       ProcessSWIFT(counterpartyModel, syncResult, bank, isDebug);
       
       if (bank.CorrespondentAccount != counterpartyModel.CorrespondentAccount)
         bank.CorrespondentAccount = counterpartyModel.CorrespondentAccount;
     }
+    
     /// <summary>
     /// Заполнить свойства персоны-контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SetPersonProperties(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       var person = People.As(counterparty);
       
-      ProcessPersonTIN(counterpartyModel, syncResult, counterparty, isDebug);
+      ProcessCounterpartyTIN(counterpartyModel, syncResult, counterparty, isDebug);
       
       if (person.LastName != counterpartyModel.LastName)
         person.LastName = counterpartyModel.LastName;
@@ -1889,44 +2213,38 @@ namespace sline.IntegrationCore.Server
       if (person.Sex != sex)
         person.Sex = sex;
     }
+    
     /// <summary>
-    /// Обработка ИНН персоны из контрагента
+    /// Обработка ИНН контрагента
     /// </summary>
-    public virtual void ProcessPersonTIN(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
+    public virtual void ProcessCounterpartyTIN(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
-      var message = CheckTIN(counterpartyModel.TIN, false);
+      var message = CheckTIN(counterpartyModel.TIN, CompanyBases.Is(counterparty));
       if (!string.IsNullOrEmpty(message))
       {
         syncResult.Result = Constants.Module.SyncResult.Warning;
         AddMessage(syncResult, Constants.Module.MessageType.Info, message);
         if (isDebug)
-          Logger.WithLogger("IntegrationCore").Debug($" >  ProcessPersonTIN > Message: {message}");
+          Logger.WithLogger("IntegrationCore").Debug($"ProcessCounterpartyTIN > Message: {message}");
       }
       else if (counterparty.TIN != counterpartyModel.TIN)
         counterparty.TIN = counterpartyModel.TIN;
     }
+    
     /// <summary>
-    /// Обработка ИНН компании/банка из контрагента
+    /// Обработка КПП компании/банка
     /// </summary>
-    public virtual void ProcessCompanyTIN(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
-    {
-      var message = CheckTIN(counterpartyModel.TIN, true);
-      if (!string.IsNullOrEmpty(message))
-      {
-        syncResult.Result = Constants.Module.SyncResult.Warning;
-        AddMessage(syncResult, Constants.Module.MessageType.Info, message);
-        if (isDebug)
-          Logger.WithLogger("IntegrationCore").Debug($" >  ProcessPersonTIN > Message: {message}");
-      }
-      else if (counterparty.TIN != counterpartyModel.TIN)
-        counterparty.TIN = counterpartyModel.TIN;
-    }
-    /// <summary>
-    /// Обработка ИНН компании/банка из контрагента
-    /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessCompanyTRRC(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
-      var company = Companies.As(counterparty);
+      var companyBase = CompanyBases.As(counterparty);
       
       var message = CheckTRRC(counterpartyModel.TRRC);
       if (!string.IsNullOrEmpty(message))
@@ -1934,14 +2252,19 @@ namespace sline.IntegrationCore.Server
         syncResult.Result = Constants.Module.SyncResult.Warning;
         AddMessage(syncResult, Constants.Module.MessageType.Info, message);
         if (isDebug)
-          Logger.WithLogger("IntegrationCore").Debug($" >  ProcessCompanyTRRC > Message: {message}");
+          Logger.WithLogger("IntegrationCore").Debug($"ProcessCompanyTRRC > Message: {message}");
       }
-      else if (company.TRRC != counterpartyModel.TRRC)
-        company.TRRC = counterpartyModel.TRRC;
+      else if (companyBase.TRRC != counterpartyModel.TRRC)
+        companyBase.TRRC = counterpartyModel.TRRC;
     }
+    
     /// <summary>
     /// Обработать головную организацию контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessHeadCompany(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       ICompany company = Companies.As(counterparty);
@@ -1959,9 +2282,14 @@ namespace sline.IntegrationCore.Server
       if (company.HeadCompany != headCompany)
         company.HeadCompany = headCompany;
     }
+    
     /// <summary>
-    /// Получение головную организацию контрагента
+    /// Получение головной организации контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Организация</returns>
     public virtual ICompany GetHeadCompany(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       ICompany company = null;
@@ -1976,9 +2304,14 @@ namespace sline.IntegrationCore.Server
       
       return company;
     }
+    
     /// <summary>
-    /// Обработка БИК
+    /// Обработка БИК банка
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="bank">Банк</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessBIC(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, IBank bank, bool isDebug)
     {
       var message = CheckBIC(counterpartyModel.BIC);
@@ -1992,9 +2325,14 @@ namespace sline.IntegrationCore.Server
       else if (bank.BIC != counterpartyModel.BIC)
         bank.BIC = counterpartyModel.BIC;
     }
+    
     /// <summary>
-    /// Обработка SWIFT
+    /// Обработка SWIFT банка
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="bank">Банк</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessSWIFT(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, IBank bank, bool isDebug)
     {
       var message = CheckSWIFT(counterpartyModel.SWIFT);
@@ -2008,9 +2346,14 @@ namespace sline.IntegrationCore.Server
       else if (bank.SWIFT != counterpartyModel.SWIFT)
         bank.SWIFT = counterpartyModel.SWIFT;
     }
+    
     /// <summary>
-    /// Обработать ответственного сотрудника за контрагента
+    /// Обработка ответственного сотрудника за контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessResponsible(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       IEmployee responsible = GetResponsible(counterpartyModel, syncResult, isDebug);
@@ -2026,9 +2369,14 @@ namespace sline.IntegrationCore.Server
       if (counterparty.Responsible != responsible)
         counterparty.Responsible = responsible;
     }
+    
     /// <summary>
     /// Получение ответственного сотрудника для контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="isDebug">Признак отладки</param>
+    /// <returns>Сотрудник</returns>
     public virtual IEmployee GetResponsible(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, bool isDebug)
     {
       IEmployee responsible = null;
@@ -2043,16 +2391,26 @@ namespace sline.IntegrationCore.Server
       
       return responsible;
     }
+    
     /// <summary>
     /// Обработка кастомных свойств
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void ProcessObjectExtension(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty, bool isDebug)
     {
       // для реализации в перекрытиях
     }
+    
     /// <summary>
     /// Сохранить контрагента
     /// </summary>
+    /// <param name="counterpartyModel">Структура контрагента</param>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="counterparty">Контрагент</param>
+    /// <param name="isDebug">Признак отладки</param>
     public virtual void SaveCounterparty(Structures.Module.ICounterpartyModel counterpartyModel, Structures.Module.ISyncResult syncResult, ICounterparty counterparty)
     {
       if (counterparty == null)
@@ -2091,6 +2449,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Создание структуры с результатом синхронизации
     /// </summary>
+    /// <param name="model">Структура поиска сущности</param>
+    /// <returns>Структура результата синхронизации</returns>
     public virtual Structures.Module.ISyncResult CreateResult(sline.IntegrationCore.Structures.Module.IEntityModel model)
     {
       var syncResult = Structures.Module.SyncResult.Create();
@@ -2099,9 +2459,12 @@ namespace sline.IntegrationCore.Server
       syncResult.Messages = new List<Structures.Module.ISyncResultMessage>();
       return syncResult;
     }
+    
     /// <summary>
     /// Создание структуры с результатом синхронизации
     /// </summary>
+    /// <param name="id">ИД сущности Директум</param>
+    /// <returns>Структура результата синхронизации</returns>
     public virtual Structures.Module.ISyncResult CreateResult(long id)
     {
       var syncResult = Structures.Module.SyncResult.Create();
@@ -2111,9 +2474,13 @@ namespace sline.IntegrationCore.Server
       syncResult.Messages = new List<Structures.Module.ISyncResultMessage>();
       return syncResult;
     }
+    
     /// <summary>
     /// Добавление сообщения в массив сообщений структуры синхронизации
     /// </summary>
+    /// <param name="syncResult">Структура результата синхронизации</param>
+    /// <param name="type">Тип сообщения</param>
+    /// <param name="message">Текст сообщения</param>
     public virtual void AddMessage(Structures.Module.ISyncResult syncResult, string type, string message)
     {
       var syncResultMessage = Structures.Module.SyncResultMessage.Create();
@@ -2127,29 +2494,41 @@ namespace sline.IntegrationCore.Server
     #region Вызов коробочных проверок реквизитов
     
     /// <summary>
-    /// Проверка ИНН
+    /// Проверка ИНН на валидность
     /// </summary>
+    /// <param name="TIN">Строка с ИНН</param>
+    /// <param name="isCompany">Признак того, что проверяется ИНН для компании</param>
+    /// <returns>Текст ошибки. Пустая строка для верного ИНН</returns>
     public virtual string CheckTIN(string TIN, bool isCompany)
     {
       return Sungero.Parties.PublicFunctions.Counterparty.CheckTin(TIN, isCompany);
     }
+    
     /// <summary>
-    /// Проверка КПП
+    /// Проверка КПП на валидность
     /// </summary>
+    /// <param name="TRRC">Строка с КПП</param>
+    /// <returns>Текст ошибки. Пустая строка для верного КПП</returns>
     public virtual string CheckTRRC(string TRRC)
     {
       return Sungero.Parties.PublicFunctions.CompanyBase.CheckTRRC(TRRC);
     }
+    
     /// <summary>
-    /// Проверка БИК
+    /// Проверка БИК по количеству символов
     /// </summary>
+    /// <param name="BIC">БИК</param>
+    /// <returns>Текст ошибки. Пустая строка, если длина БИК в порядке</returns>
     public virtual string CheckBIC(string BIC)
     {
       return Sungero.Parties.PublicFunctions.Bank.CheckBicLength(BIC);
     }
+    
     /// <summary>
-    /// Проверка SWIFT
+    /// Проверить корректность SWIFT
     /// </summary>
+    /// <param name="SWIFT">SWIFT</param>
+    /// <returns>Текст ошибки. Для верного SWIFT - пустая строка.</returns>
     public virtual string CheckSWIFT(string SWIFT)
     {
       return Sungero.Parties.PublicFunctions.Bank.CheckSwift(SWIFT);
@@ -2160,6 +2539,8 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Обработка состояния сущности
     /// </summary>
+    /// <param name="extStatus">Внешнее значение состояния</param>
+    /// <returns>Значение состояния Директум</returns>
     public virtual Enumeration ProcessEntityStatus(string extStatus)
     {
       var status = Sungero.CoreEntities.DatabookEntry.Status.Active;
@@ -2180,6 +2561,9 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Создание "тяжелого" тела запроса
     /// </summary>
+    /// <param name="request">Базовый запрос</param>
+    /// <param name="body">Тело запроса</param>
+    /// <returns>"Тяжелое" тело</returns>
     public virtual ILargeBody CreateLargeBody(IBaseRequest request, string body)
     {
       var largeBody = LargeBodies.Create();
@@ -2206,6 +2590,7 @@ namespace sline.IntegrationCore.Server
         Sungero.Docflow.PublicFunctions.Module.ExecuteSQLCommand(sqlCommand);
       }
     }
+    
     /// <summary>
     /// Получить из БД идентификаторы, занятые конкретным асинхронным обработчиком
     /// </summary>
@@ -2250,10 +2635,11 @@ namespace sline.IntegrationCore.Server
     /// <summary>
     /// Получаем значение параметра "Входящие запросы"
     /// </summary>
+    /// <returns>True - если настройка включена, false - если настройка выключена</returns>
     [Public, Remote(IsPure = true)]
     public virtual bool GetIncomingRequestSetting()
     {
-      var captureIncRequest = false;
+      var captureIncRequest = Convert.ToBoolean(Constants.Module.IntegrationParams.IncomingRequestParamValue);
       try
       {
         var value = Sungero.Docflow.PublicFunctions.Module.GetDocflowParamsValue(Constants.Module.IntegrationParams.IncomingRequestParamName);
@@ -2264,13 +2650,15 @@ namespace sline.IntegrationCore.Server
       { }
       return captureIncRequest;
     }
+    
     /// <summary>
     /// Получаем значение параметра "Количество итераций"
     /// </summary>
+    /// <returns>Числовое значение. Если значения в БД нет, берется значение из константы</returns>
     [Public, Remote(IsPure = true)]
     public virtual int GetIterationMaxCountSetting()
     {
-      var iteration = 5;
+      var iteration = Convert.ToInt32(Constants.Module.IntegrationParams.IterationMaxCountParamValue);
       try
       {
         var value = Sungero.Docflow.PublicFunctions.Module.GetDocflowParamsValue(Constants.Module.IntegrationParams.IterationMaxCountParamName);
@@ -2281,13 +2669,15 @@ namespace sline.IntegrationCore.Server
       { }
       return iteration;
     }
+    
     /// <summary>
     /// Получаем значение параметра "Размер пакета"
     /// </summary>
+    /// <returns>Числовое значение. Если значения в БД нет, берется значение из константы</returns>
     [Public, Remote(IsPure = true)]
     public virtual int GetAsyncBatchSetting()
     {
-      var batch = 100;
+      var batch = Convert.ToInt32(Constants.Module.IntegrationParams.AsyncBatchParamValue);
       try
       {
         var value = Sungero.Docflow.PublicFunctions.Module.GetDocflowParamsValue(Constants.Module.IntegrationParams.AsyncBatchParamName);
@@ -2298,13 +2688,15 @@ namespace sline.IntegrationCore.Server
       { }
       return batch;
     }
+    
     /// <summary>
     /// Получаем значение параметра "Режим отладки"
     /// </summary>
+    /// <returns>True - если настройка включена, false - если настройка выключена</returns>
     [Public, Remote(IsPure = true)]
     public virtual bool GetDebugModeSetting()
     {
-      var debugMode = false;
+      var debugMode = Convert.ToBoolean(Constants.Module.IntegrationParams.DebugModeParamValue);
       try
       {
         var value = Sungero.Docflow.PublicFunctions.Module.GetDocflowParamsValue(Constants.Module.IntegrationParams.DebugModeParamName);
@@ -2315,13 +2707,15 @@ namespace sline.IntegrationCore.Server
       { }
       return debugMode;
     }
+    
     /// <summary>
     /// Получаем значение параметра "Время жизни запроса"
     /// </summary>
+    /// <returns>Числовое значение. Если значения в БД нет, берется значение из константы</returns>
     [Public, Remote(IsPure = true)]
     public virtual int GetLifeTimeSetting()
     {
-      var lifeTime = 14;
+      var lifeTime = Convert.ToInt32(Constants.Module.IntegrationParams.LifeTimeParamValue);
       try
       {
         var value = Sungero.Docflow.PublicFunctions.Module.GetDocflowParamsValue(Constants.Module.IntegrationParams.LifeTimeParamName);
@@ -2337,6 +2731,10 @@ namespace sline.IntegrationCore.Server
     
     #region Функции для клиентской части
     
+    /// <summary>
+    /// Получить роль "Ответственные за интеграцию"
+    /// </summary>
+    /// <returns>Роль "Ответственные за интеграцию"</returns>
     [Public, Remote]
     public IRole GetIntegrationRole()
     {
