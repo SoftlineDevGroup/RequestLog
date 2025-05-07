@@ -1277,11 +1277,7 @@ namespace sline.IntegrationCore.Server
       }
       if (captureRequest)
       {
-        string date = now.ToString("dd.MM.yyyy HH:mm:ss");
-        
-        Logger.WithLogger("IntegrationCore").Debug($"{businessUnit?.GetType().GetFinalType().GUID.ToString()}");
-        Logger.WithLogger("IntegrationCore").Debug($"{businessUnit?.GetType().GetFinalType().GUID.ToString()}");
-        
+        string date = now.ToString("dd.MM.yyyy HH:mm:ss");        
         CreateIncomingRequest(sline.IntegrationCore.Resources.IncRequest_NameFormat(sline.IntegrationCore.Resources.BusinessUnitName, date),
                               businessUnit?.GetType().GetFinalType().GetTypeGuid().ToString(), findModel, incomingString, answerString);
       }
@@ -2341,7 +2337,7 @@ namespace sline.IntegrationCore.Server
         syncResult.Result = Constants.Module.SyncResult.Warning;
         AddMessage(syncResult, Constants.Module.MessageType.Info, message);
         if (isDebug)
-          Logger.WithLogger("IntegrationCore").Debug($"ProcessBic > Message: {message}");
+          Logger.WithLogger("IntegrationCore").Debug($"ProcessSWIFT > Message: {message}");
       }
       else if (bank.SWIFT != counterpartyModel.SWIFT)
         bank.SWIFT = counterpartyModel.SWIFT;
