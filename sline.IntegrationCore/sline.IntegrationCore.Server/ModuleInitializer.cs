@@ -28,6 +28,13 @@ namespace sline.IntegrationCore.Server
       CreateRole(IntegrationCore.Resources.RoleNameIntegration, IntegrationCore.Resources.DescriptionIntegration, Constants.Module.RoleGuid.IntegrationRole);
     }
     
+    /// <summary>
+    /// Создать роль
+    /// </summary>
+    /// <param name="roleName">Имя роли</param>
+    /// <param name="roleDescription">Описание роли</param>
+    /// <param name="roleGuid">Уникальный идентификатор</param>
+    /// <returns>Роль</returns>
     public virtual IRole CreateRole(string roleName, string roleDescription, Guid roleGuid)
     {
       InitializationLogger.DebugFormat("Init: Create Role {0}", roleName);
@@ -39,7 +46,6 @@ namespace sline.IntegrationCore.Server
         role.Name = roleName;
         role.Description = roleDescription;
         role.Sid = roleGuid;
-        //role.IsSystem = true;
         role.Save();
       }
       else
@@ -91,6 +97,9 @@ namespace sline.IntegrationCore.Server
       IntegrationCore.LargeBodies.AccessRights.Save();
     }
     
+    /// <summary>
+    /// Создание первичных параметров настроек модуля
+    /// </summary>
     public virtual void CreateDocflowParams()
     {
       if (Sungero.Docflow.PublicFunctions.Module.GetDocflowParamsValue(Constants.Module.IntegrationParams.IterationMaxCountParamName) == null)
@@ -115,6 +124,9 @@ namespace sline.IntegrationCore.Server
       
     }
     
+    /// <summary>
+    /// Создать таблицу для хранения идентификаторов
+    /// </summary>
     public virtual void CreateModuleTables()
     {
       return;

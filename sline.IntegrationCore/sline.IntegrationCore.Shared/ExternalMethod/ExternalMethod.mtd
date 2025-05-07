@@ -84,24 +84,6 @@
         },
         {
           "$type": "Sungero.Metadata.ControlMetadata, Sungero.Metadata",
-          "NameGuid": "2e3f6cf6-ab13-4e95-9f53-5cda57538210",
-          "Name": "Parameters",
-          "ColumnNumber": 0,
-          "ColumnSpan": 1,
-          "DataBinderTypeName": "Sungero.Presentation.CommonDataBinders.TextEditorToTextBinder",
-          "ParentGuid": "730578ab-ab0b-461d-aab8-f23fd7fecce5",
-          "PropertyGuid": "a958d76a-9a72-4e87-967d-38029d45c2d4",
-          "RowNumber": 5,
-          "RowSpan": 1,
-          "Settings": [
-            {
-              "Name": "NeedExpand",
-              "Value": true
-            }
-          ]
-        },
-        {
-          "$type": "Sungero.Metadata.ControlMetadata, Sungero.Metadata",
           "NameGuid": "af77fc07-9be9-4c7c-9fc1-582aedc0d396",
           "Name": "Code",
           "ColumnNumber": 0,

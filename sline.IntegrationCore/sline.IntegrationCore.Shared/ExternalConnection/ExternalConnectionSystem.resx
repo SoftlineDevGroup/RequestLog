@@ -139,4 +139,7 @@
   <data name="Action_ShowMethodsConfirmationDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="Property_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
 </root>

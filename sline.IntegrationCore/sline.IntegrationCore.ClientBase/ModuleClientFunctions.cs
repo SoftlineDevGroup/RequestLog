@@ -8,6 +8,10 @@ namespace sline.IntegrationCore.Client
 {
   public class ModuleFunctions
   {
+    /// <summary>
+    /// Проверка возможности для настройки модуля
+    /// </summary>
+    /// <returns></returns>
     [Public]
     public virtual bool CanManageSettings()
     {
@@ -48,7 +52,7 @@ namespace sline.IntegrationCore.Client
       var hyperlinkIncoming = dialog.AddHyperlink(sline.IntegrationCore.Resources.IncomingGroup);
       var incomingRequestControl = dialog.AddSelect(sline.IntegrationCore.Resources.SettingDialogIncRequests, true,
                                                     logIncomingRequests ? sline.IntegrationCore.Resources.Dialog_Yes : sline.IntegrationCore.Resources.Dialog_No)
-        .From(sline.IntegrationCore.Resources.Dialog_No, sline.IntegrationCore.Resources.Dialog_Yes);      
+        .From(sline.IntegrationCore.Resources.Dialog_No, sline.IntegrationCore.Resources.Dialog_Yes);
       
       // исходящие запросы
       var hyperlinkOutgoing = dialog.AddHyperlink(sline.IntegrationCore.Resources.OutgoingGroup);
@@ -58,15 +62,27 @@ namespace sline.IntegrationCore.Client
       var updateButton = dialog.Buttons.AddCustom(sline.IntegrationCore.Resources.SettingDialogButtonUpdate);
       dialog.Buttons.AddCancel();
       
+      // числовые значения не могут быть меньшими или равными нулю
+      dialog.SetOnRefresh(
+        args =>
+        {
+          if (iterationControl.Value.GetValueOrDefault() <= 0)
+            args.AddError(sline.IntegrationCore.Resources.Error_DialogValuesLessZeroFormat(sline.IntegrationCore.Resources.SettingDialogInterationName));
+          if (batchControl.Value.GetValueOrDefault() <= 0)
+            args.AddError(sline.IntegrationCore.Resources.Error_DialogValuesLessZeroFormat(sline.IntegrationCore.Resources.SettingDialogBatchName));
+          if (lifeTimeControl.Value.GetValueOrDefault() <= 0)
+            args.AddError(sline.IntegrationCore.Resources.Error_DialogValuesLessZeroFormat(sline.IntegrationCore.Resources.SettingDialogLifeTime));
+        });
+      
       if (dialog.Show() == updateButton)
       {
-        if (iterationControl.Value > 0 && iterationControl.Value != iteration)
+        if (iterationControl.Value != iteration)
           Sungero.Docflow.PublicFunctions.Module.InsertOrUpdateDocflowParam(Constants.Module.IntegrationParams.IterationMaxCountParamName, iterationControl.Value.ToString());
         
-        if (batchControl.Value >= 10 && batchControl.Value != batch)
+        if (batchControl.Value != batch)
           Sungero.Docflow.PublicFunctions.Module.InsertOrUpdateDocflowParam(Constants.Module.IntegrationParams.AsyncBatchParamName, batchControl.Value.ToString());
         
-        if (lifeTimeControl.Value > 0 && lifeTimeControl.Value != lifeTime)
+        if (lifeTimeControl.Value != lifeTime)
           Sungero.Docflow.PublicFunctions.Module.InsertOrUpdateDocflowParam(Constants.Module.IntegrationParams.LifeTimeParamName, lifeTimeControl.Value.ToString());
 
         var controlValue = debugControl.Value == sline.IntegrationCore.Resources.Dialog_Yes ? true : false;
@@ -75,8 +91,8 @@ namespace sline.IntegrationCore.Client
         
         controlValue = incomingRequestControl.Value == sline.IntegrationCore.Resources.Dialog_Yes ? true : false;
         if (controlValue != logIncomingRequests)
-          Sungero.Docflow.PublicFunctions.Module.InsertOrUpdateDocflowParam(Constants.Module.IntegrationParams.IncomingRequestParamName, controlValue.ToString());        
-      }      
+          Sungero.Docflow.PublicFunctions.Module.InsertOrUpdateDocflowParam(Constants.Module.IntegrationParams.IncomingRequestParamName, controlValue.ToString());
+      }
       
     }
 

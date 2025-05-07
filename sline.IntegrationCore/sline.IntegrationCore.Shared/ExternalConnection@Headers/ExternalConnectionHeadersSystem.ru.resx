@@ -58,64 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Property_Url" xml:space="preserve">
-    <value>URL</value>
+  <data name="Property_Key" xml:space="preserve">
+    <value>Ключ</value>
   </data>
-  <data name="DisplayName" xml:space="preserve">
-    <value>Подключение к внешним системам</value>
-  </data>
-  <data name="AccusativeDisplayName" xml:space="preserve">
-    <value>Подключение к внешним системам</value>
-  </data>
-  <data name="CollectionDisplayName" xml:space="preserve">
-    <value>Подключения к внешним системам</value>
-  </data>
-  <data name="Property_Login" xml:space="preserve">
-    <value>Логин</value>
-  </data>
-  <data name="Property_Password" xml:space="preserve">
-    <value>Пароль</value>
-  </data>
-  <data name="Property_AuthenticationType" xml:space="preserve">
-    <value>Тип аутентификации</value>
-  </data>
-  <data name="Action_SetPassword" xml:space="preserve">
-    <value>Задать пароль</value>
-  </data>
-  <data name="Action_SetPasswordHint" xml:space="preserve">
-    <value>Задать пароль</value>
-  </data>
-  <data name="Action_SetPasswordDescription" xml:space="preserve">
-    <value>Задать пароль</value>
-  </data>
-  <data name="Action_ShowMethods" xml:space="preserve">
-    <value>Показать методы</value>
-  </data>
-  <data name="Action_AddMethodDescription" xml:space="preserve">
-    <value>Действие добавляет новый метод</value>
-  </data>
-  <data name="Action_AddMethodHint" xml:space="preserve">
-    <value>Добавить новый метод</value>
-  </data>
-  <data name="Property_Code" xml:space="preserve">
-    <value>Код</value>
-  </data>
-  <data name="Property_Base64" xml:space="preserve">
-    <value>Шифрованные данные</value>
-  </data>
-  <data name="Ribbon_CustomCommands_81a253d86bd1451d9a794907e5732bc0" xml:space="preserve">
-    <value>Команды</value>
-  </data>
-  <data name="Action_AddMethod" xml:space="preserve">
-    <value>Добавить метод</value>
-  </data>
-  <data name="Action_ShowMethodsHint" xml:space="preserve">
-    <value>Показать методы</value>
-  </data>
-  <data name="Action_ShowMethodsDescription" xml:space="preserve">
-    <value>Открывает список методов, привязанных к этому подключению</value>
-  </data>
-  <data name="Property_Headers" xml:space="preserve">
-    <value>Заголовки</value>
+  <data name="Property_Value" xml:space="preserve">
+    <value>Значение</value>
   </data>
 </root>

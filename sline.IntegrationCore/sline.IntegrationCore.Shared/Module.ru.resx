@@ -229,4 +229,7 @@
   <data name="UpdateOutRequestName" xml:space="preserve">
     <value>Передача ответа от сторонней системы по запросу с ID "{0}" от {1}</value>
   </data>
+  <data name="Error_DialogValuesLessZero" xml:space="preserve">
+    <value>Значение "{0}" не может быть меньше или равным нулю</value>
+  </data>
 </root>

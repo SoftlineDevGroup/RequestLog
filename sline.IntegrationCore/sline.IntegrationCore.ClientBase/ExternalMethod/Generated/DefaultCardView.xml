@@ -8,7 +8,7 @@
         <property name="View" isnull="true" iskey="true">
           <property name="LinesPerRowMode">None</property>
           <property name="ColumnChooserState" isnull="true" iskey="true">
-            <property name="Location">1158,-2</property>
+            <property name="Location">1126,-2</property>
             <property name="Size">220,250</property>
           </property>
           <property name="AllowMoveColumnToDropArea">false</property>
@@ -30,16 +30,14 @@
             <property name="Name">ExternalMethod_Headers_Key</property>
             <property name="FieldName">Key</property>
             <property name="VisibleIndex">0</property>
-            <property name="Width">159</property>
-            <property name="ActualWidth">12*</property>
+            <property name="ActualWidth">5*</property>
           </property>
           <property name="Item2" isnull="true" iskey="true">
             <property name="Visible">true</property>
             <property name="Name">ExternalMethod_Headers_Value</property>
             <property name="FieldName">Value</property>
             <property name="VisibleIndex">1</property>
-            <property name="Width">172</property>
-            <property name="ActualWidth">13*</property>
+            <property name="ActualWidth">7*</property>
           </property>
         </property>
         <property name="GroupSummarySortInfo" iskey="true" value="0" />
