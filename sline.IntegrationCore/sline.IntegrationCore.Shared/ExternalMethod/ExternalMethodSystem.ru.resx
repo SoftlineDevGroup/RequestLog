@@ -74,10 +74,10 @@
     <value>Метод внешней системы</value>
   </data>
   <data name="AccusativeDisplayName" xml:space="preserve">
-    <value>Метод сторонней системы</value>
+    <value>Метод внешней системы</value>
   </data>
   <data name="CollectionDisplayName" xml:space="preserve">
-    <value>Методы сторонних систем</value>
+    <value>Методы внешних систем</value>
   </data>
   <data name="Property_Parameters" xml:space="preserve">
     <value>Параметры</value>
