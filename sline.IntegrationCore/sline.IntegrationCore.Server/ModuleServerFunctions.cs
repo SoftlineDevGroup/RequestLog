@@ -276,7 +276,29 @@ namespace sline.IntegrationCore.Server
         
         SetSystemAndMethod(outRequest, data);
         
-        if (data.Headers.Any())
+        var system = outRequest.SendTo;
+        if (system != null && system.Headers.Any())
+        {
+          foreach (var header in system.Headers)
+          {
+            var headerRow = outRequest.Headers.AddNew();
+            headerRow.Key = header.Key;
+            headerRow.Value = header.Value;
+          }
+        }
+        
+        var method = outRequest.Method;
+        if (method != null && method.Headers.Any())
+        {
+          foreach (var header in method.Headers)
+          {
+            var headerRow = outRequest.Headers.AddNew();
+            headerRow.Key = header.Key;
+            headerRow.Value = header.Value;
+          }
+        }
+        
+        if (data.Headers != null && data.Headers.Any())
         {
           foreach (var header in data.Headers)
           {
