@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "e8d7876d-c358-4c8d-bd99-ee0f93c86a49",
+		"name": "IntegrationCore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SyncBusinessUnit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"businessUnitModel\": {\r\n        \"Entity\": {\r\n            \"Id\": null,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Status\": \"Active\",\r\n        \"Name\": \"Business unit 1\",\r\n        \"LegalName\": \"Business unit 1\",\r\n        \"TIN\": null,\r\n        \"TRRC\": null,\r\n        \"PSRN\": null,\r\n        \"HeadCompany\": {\r\n            \"Id\": 2,\r\n            \"ExternalId\": \"2\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"CEO\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"ObjectExtension\": null\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/integration/odata/IntegrationCore/SyncBusinessUnit",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"integration",
+						"odata",
+						"IntegrationCore",
+						"SyncBusinessUnit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncDepartment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"departmentModel\": {\r\n        \"Entity\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Status\": \"Active\",\r\n        \"Name\": \"Department 1\",\r\n        \"BusinessUnit\": {\r\n            \"Id\": 2,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"HeadOffice\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"2\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Manager\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"ObjectExtension\": null\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/integration/odata/IntegrationCore/SyncDepartment",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"integration",
+						"odata",
+						"IntegrationCore",
+						"SyncDepartment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncJobTitle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jobTitleModel\": {\r\n        \"Entity\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Status\": \"Active\",\r\n        \"Name\": \"Business unit 1\",\r\n        \"Department\": {\r\n            \"Id\": 2,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"ObjectExtension\": null\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/integration/odata/IntegrationCore/SyncJobTitle",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"integration",
+						"odata",
+						"IntegrationCore",
+						"SyncJobTitle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personModel\": {\r\n        \"Entity\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Status\": \"Active\",\r\n        \"LastName\": \"Ivanov\",\r\n        \"FirstName\": \"Ivan\",\r\n        \"MiddleName\": \"Ivanovich\",\r\n        \"Sex\": null,\r\n        \"DateOfBirth\": null,\r\n        \"TIN\": null,\r\n        \"INILA\": null,\r\n        \"ObjectExtension\": null\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/integration/odata/IntegrationCore/SyncPerson",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"integration",
+						"odata",
+						"IntegrationCore",
+						"SyncPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncEmployee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employeeModel\": {\r\n        \"Entity\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Status\": \"Active\",\r\n        \"Person\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"JobTitle\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Department\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Phone\": null,\r\n        \"Email\": null,\r\n        \"NeedNotifyExpiredAssignments\": null,\r\n        \"NeedNotifyNewAssignments\": null,\r\n        \"NeedNotifyAssignmentsSummary\": null,\r\n        \"PersonnelNumber\": null,\r\n        \"ObjectExtension\": null\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/integration/odata/IntegrationCore/SyncEmployee",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"integration",
+						"odata",
+						"IntegrationCore",
+						"SyncEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncCounterparty",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"counterpartyModel\": {\r\n        \"EntityType\": \"Company\",\r\n        \"Entity\": {\r\n            \"Id\": 1,\r\n            \"ExternalId\": \"1\",\r\n            \"ExtSystemId\": null\r\n        },\r\n        \"Name\": \"Counterparty 1\",\r\n        \"LegalName\": null,\r\n        \"Nonresident\": null,\r\n        \"Status\": \"Active\",\r\n        \"Code\": null,\r\n        \"City\": null,\r\n        \"Region\": null,\r\n        \"LegalAddress\": null,\r\n        \"PostalAddress\": null,\r\n        \"Phones\": null,\r\n        \"Email\": null,\r\n        \"Homepage\": null,\r\n        \"Responsible\": null,\r\n        \"HeadCompany\": null,\r\n        \"TIN\": null,\r\n        \"TRRC\": null,\r\n        \"PSRN\": null,\r\n        \"NCEO\": null,\r\n        \"NCEA\": null,\r\n        \"INILA\": null,\r\n        \"BIC\": null,\r\n        \"SWIFT\": null,\r\n        \"Note\": null,\r\n        \"LastName\": null,\r\n        \"FirstName\": null,\r\n        \"MiddleName\": null,\r\n        \"DateOfBirth\": null,\r\n        \"Sex\": null,\r\n        \"Account\": null,\r\n        \"CorrespondentAccount\": null,\r\n        \"Bank\": null,\r\n        \"ObjectExtension\": null\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/integration/odata/IntegrationCore/SyncCounterparty",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"integration",
+						"odata",
+						"IntegrationCore",
+						"SyncCounterparty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOutRequest",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "E4MP0X4vovXf",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "service user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"answer\": {\r\n        \"Id\": 62,\r\n        \"SystemName\": \"1CERP\",\r\n        \"Status\": \"Success\",\r\n        \"StatusCode\": \"200\",\r\n        \"Answer\": \"Документ успешно создан\",\r\n        \"DateTime\": \"2025-01-12T12:34:48+03:00\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}:41136/integration/odata/IntegrationCore/UpdateOutRequest",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "41136",
+					"path": [
+						"integration",
+						"odata",
+						"IntegrationCore",
+						"UpdateOutRequest"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{Password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{Username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost"
+		},
+		{
+			"key": "Username",
+			"value": "service user"
+		},
+		{
+			"key": "Password",
+			"value": "11111"
+		}
+	]
+}
