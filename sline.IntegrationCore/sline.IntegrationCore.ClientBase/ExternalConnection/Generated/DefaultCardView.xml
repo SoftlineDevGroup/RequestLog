@@ -1,4 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
   <ViewName>Default</ViewName>
+  <Collection2e258b8fc21742cfad512182caf89e12 FormGuid="b1c08a55-10a8-42d0-98c1-85a8c3088218">
+    <XtraSerializer version="1.0" application="GridControl">
+      <property name="#LayoutVersion" isnull="true" />
+      <property name="$GridControl" iskey="true" value="GridControl">
+        <property name="View" isnull="true" iskey="true">
+          <property name="LinesPerRowMode">None</property>
+          <property name="ColumnChooserState" isnull="true" iskey="true">
+            <property name="Location">1089,-2</property>
+            <property name="Size">220,250</property>
+          </property>
+          <property name="AllowMoveColumnToDropArea">false</property>
+          <property name="AllowColumnMoving">true</property>
+          <property name="AllowSorting">true</property>
+          <property name="ShowTotalSummary">false</property>
+          <property name="IsRowCellMenuEnabled">false</property>
+          <property name="ShowGroupPanel">false</property>
+          <property name="AutoWidth">false</property>
+          <property name="AllowGrouping">false</property>
+        </property>
+        <property name="TotalSummary" iskey="true" value="0" />
+        <property name="SortInfo" iskey="true" value="0" />
+        <property name="GroupSummary" iskey="true" value="0" />
+        <property name="GroupCount">0</property>
+        <property name="Columns" iskey="true" value="2">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">ExternalConnection_Headers_Key</property>
+            <property name="FieldName">Key</property>
+            <property name="VisibleIndex">0</property>
+            <property name="Width">116</property>
+            <property name="ActualWidth">9*</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="Name">ExternalConnection_Headers_Value</property>
+            <property name="FieldName">Value</property>
+            <property name="VisibleIndex">1</property>
+            <property name="Width">180</property>
+            <property name="ActualWidth">14*</property>
+          </property>
+        </property>
+        <property name="GroupSummarySortInfo" iskey="true" value="0" />
+      </property>
+    </XtraSerializer>
+  </Collection2e258b8fc21742cfad512182caf89e12>
 </settings>

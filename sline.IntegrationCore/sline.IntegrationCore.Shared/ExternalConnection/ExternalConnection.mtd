@@ -120,6 +120,19 @@
           "RowNumber": 4,
           "RowSpan": 1,
           "Settings": []
+        },
+        {
+          "$type": "Sungero.Metadata.ControlMetadata, Sungero.Metadata",
+          "NameGuid": "2e258b8f-c217-42cf-ad51-2182caf89e12",
+          "Name": "Headers",
+          "ColumnNumber": 0,
+          "ColumnSpan": 1,
+          "DataBinderTypeName": "Sungero.Presentation.CommonDataBinders.GridControlToChildCollectionBinder",
+          "ParentGuid": "6d3478d8-8943-48c7-bb1e-adb5346165a4",
+          "PropertyGuid": "48d03200-88e2-4159-935b-2b0e39a150c8",
+          "RowNumber": 5,
+          "RowSpan": 1,
+          "Settings": []
         }
       ]
     }
@@ -219,6 +232,16 @@
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.StringEditorToStringBinder",
       "PreviousPropertyGuid": "4069b1a8-ed5e-42c2-aab4-713d7c5d46cd"
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "48d03200-88e2-4159-935b-2b0e39a150c8",
+      "Name": "Headers",
+      "Code": "ExConHeaders",
+      "EntityGuid": "2957a398-c262-4065-9b13-badb395f8658",
+      "IsShowedInList": false,
+      "PreviousPropertyGuid": "f37cc030-9662-4683-9ba0-c3817214fe8d",
+      "Versions": []
     }
   ],
   "PublicStructures": [],
