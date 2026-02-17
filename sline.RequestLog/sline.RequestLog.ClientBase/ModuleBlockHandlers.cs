@@ -4,10 +4,6 @@ using System.Linq;
 using Sungero.Core;
 using Sungero.CoreEntities;
 
-namespace sline.RequestLog.Shared
+namespace sline.RequestLog.Client.RequestLogBlocks
 {
-  public partial class ModuleFunctions
-  {
-
-  }
 }

@@ -400,6 +400,7 @@
       ]
     }
   ],
+  "FormViewUuid": "c74a8e3d-45c0-40d8-92ab-40a9ac45da50",
   "HandledEvents": [
     "CreatedServer",
     "WriteHistoryServer"
@@ -409,6 +410,7 @@
   "IconResourcesKeys": [],
   "IsStatusEnabled": true,
   "IsVisible": false,
+  "ListViewUuid": "9604dc13-1fcd-4458-b95b-80aabc4cb534",
   "OperationsClass": "",
   "Overridden": [
     "CanBeUsedInIntegration",
@@ -607,7 +609,7 @@
   "Versions": [
     {
       "Type": "EntityMetadata",
-      "Number": 12
+      "Number": 13
     }
   ]
 }

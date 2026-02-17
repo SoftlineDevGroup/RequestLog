@@ -16,7 +16,7 @@ using Sungero.Metadata;
 
 namespace sline.IntegrationCore.Server
 {
-  public class ModuleFunctions
+  public partial class ModuleFunctions
   {
     
     #region Исходящие запросы

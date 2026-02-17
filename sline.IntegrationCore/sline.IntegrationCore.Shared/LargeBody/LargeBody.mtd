@@ -77,11 +77,13 @@
       ]
     }
   ],
+  "FormViewUuid": "eac59943-f9cf-46c3-8c17-c47f30939e5b",
   "HideFromCreationArea": true,
   "HideFromNavigationEditorCreationArea": true,
   "IconResourcesKeys": [],
   "IsAutoCreated": true,
   "IsVisible": false,
+  "ListViewUuid": "b239b2d4-2782-47df-a426-7ec93395ddc2",
   "NeedWriteHistory": true,
   "OperationsClass": "",
   "Overridden": [
@@ -161,7 +163,7 @@
   "Versions": [
     {
       "Type": "EntityMetadata",
-      "Number": 12
+      "Number": 13
     }
   ]
 }

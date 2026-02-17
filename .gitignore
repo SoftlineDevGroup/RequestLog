@@ -32,3 +32,6 @@ log
 .vs
 
 _ConfigSettings.xml
+
+*.g.xml
+Libraries.json
