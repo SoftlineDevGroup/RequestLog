@@ -129,6 +129,7 @@
       ]
     }
   ],
+  "FormViewUuid": "af21155d-8942-451c-bcd7-7352da8caca0",
   "HandledEvents": [
     "FilteringServer",
     "RefreshClient",
@@ -137,6 +138,7 @@
   "IconResourcesKeys": [],
   "IsAbstract": true,
   "IsVisible": false,
+  "ListViewUuid": "265978df-7adb-45f9-9210-cd9e418e3807",
   "OperationsClass": "",
   "Overridden": [
     "IsVisible",

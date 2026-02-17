@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 
 namespace sline.IntegrationCore.Server
 {
-  public class ModuleAsyncHandlers
+  public partial class ModuleAsyncHandlers
   {
     /// <summary>
     /// Асинхронник по отправке запросов в стороннюю систему

@@ -6,7 +6,7 @@ using Sungero.CoreEntities;
 
 namespace sline.IntegrationCore.Shared
 {
-  public class ModuleFunctions
+  public partial class ModuleFunctions
   {
 
   }

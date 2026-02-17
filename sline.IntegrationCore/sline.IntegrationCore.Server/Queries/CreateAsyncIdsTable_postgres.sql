@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS public.sline_intcore_asyncids (guid VARCHAR(50), requestid TEXT);

@@ -26,7 +26,6 @@
     "Tabs": []
   },
   "DesktopViews": [],
-  "IconResourcesKeys": [],
   "Importance": "Medium",
   "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "InterfaceNamespace": "sline.RequestLog",
@@ -36,7 +35,6 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "sline.RequestLog",
-  "ResourcesKeys": [],
   "ServerAssemblyName": "sline.RequestLog.Server",
   "ServerNamespace": "sline.RequestLog.Server",
   "SharedAssemblyName": "sline.RequestLog.Shared",
@@ -47,11 +45,11 @@
   "Versions": [
     {
       "Type": "SolutionMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "DomainApi",

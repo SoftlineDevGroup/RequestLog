@@ -167,11 +167,13 @@
       ]
     }
   ],
+  "FormViewUuid": "a6fc885a-e7a4-4300-b630-0ae333f562ff",
   "HideFromCreationArea": true,
   "HideFromNavigationEditorCreationArea": true,
   "IconResourcesKeys": [],
   "IsStatusEnabled": true,
   "IsVisible": false,
+  "ListViewUuid": "f096bbaa-8b0c-4f8a-89da-2106c41e50e8",
   "OperationsClass": "",
   "Overridden": [
     "IsVisible",

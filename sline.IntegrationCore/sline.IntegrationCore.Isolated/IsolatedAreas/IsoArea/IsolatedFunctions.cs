@@ -7,7 +7,7 @@ using sline.IntegrationCore.Structures.Module;
 
 namespace sline.IntegrationCore.Isolated.IsoArea
 {
-  public class IsolatedFunctions
+  public partial class IsolatedFunctions
   {
     /// <summary>
     /// Преобразование структуры в JSON строку

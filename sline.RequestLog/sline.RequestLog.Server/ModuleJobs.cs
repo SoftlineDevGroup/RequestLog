@@ -6,7 +6,7 @@ using Sungero.CoreEntities;
 
 namespace sline.RequestLog.Server
 {
-  public class ModuleJobs
+  public partial class ModuleJobs
   {
 
   }

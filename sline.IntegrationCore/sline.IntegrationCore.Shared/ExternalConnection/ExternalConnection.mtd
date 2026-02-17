@@ -137,11 +137,13 @@
       ]
     }
   ],
+  "FormViewUuid": "19718d79-689a-43a2-9940-7755853200b5",
   "HandledEvents": [
     "RefreshClient"
   ],
   "IconResourcesKeys": [],
   "IsStatusEnabled": true,
+  "ListViewUuid": "dbed8f73-7bea-4f73-a684-c783bb8a33ac",
   "OperationsClass": "",
   "Overridden": [
     "IsVisible",
