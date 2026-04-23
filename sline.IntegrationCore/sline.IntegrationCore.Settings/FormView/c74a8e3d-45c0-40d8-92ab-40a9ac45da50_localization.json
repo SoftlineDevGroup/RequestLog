@@ -1,0 +1,27 @@
+{
+  "AuthGroup_Caption_11ab2d7fdf4f4bb48249b2c205d9b46c": {
+    "en-US": "Headers",
+    "ru-RU": "Заголовки"
+  },
+  "ControlGroup_Caption_027186c081b5474e837d89c8b2bb7d01": {
+    "en-US": "Запрос"
+  },
+  "ControlGroup1_Caption_71c341f1ef1743b1a4fcca133c9e99a0": {
+    "en-US": "Ответ"
+  },
+  "ControlGroup2_Caption_73c00dc945db46f5986010977d6fd386": {
+    "en-US": "Параметры запроса"
+  },
+  "ControlGroup3_Caption_063c88b25c9544c59d3672a2293cab54": {
+    "en-US": "Основное"
+  },
+  "Description": {},
+  "MainPage_Title_8c4ac2a96c7648f99721c79a123bdab0": {
+    "en-US": "Properties",
+    "ru-RU": "Свойства"
+  },
+  "Name": {
+    "en-US": "Outgoing request",
+    "ru-RU": "Исходящий запрос"
+  }
+}
