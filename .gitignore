@@ -35,3 +35,4 @@ _ConfigSettings.xml
 
 *.g.xml
 Libraries.json
+RequestLogSamples.cs
