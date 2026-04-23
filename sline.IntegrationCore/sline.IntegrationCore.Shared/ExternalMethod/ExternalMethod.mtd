@@ -232,7 +232,7 @@
       ],
       "Placement": "Shared",
       "ReturnType": "global::System.Linq.IQueryable<global::sline.IntegrationCore.IExternalMethod>",
-      "ReturnTypeFullName": "System.Linq.IQueryable"
+      "ReturnTypeFullName": "System.Linq.IQueryable`1[[sline.IntegrationCore.IExternalMethod, Sungero.Domain.Interfaces]]"
     }
   ],
   "PublicStructures": [],
@@ -261,7 +261,7 @@
   "Versions": [
     {
       "Type": "EntityMetadata",
-      "Number": 13
+      "Number": 14
     }
   ]
 }
