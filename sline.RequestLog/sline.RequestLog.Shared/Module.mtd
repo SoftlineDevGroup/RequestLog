@@ -40,7 +40,7 @@
   "SharedAssemblyName": "sline.RequestLog.Shared",
   "SharedNamespace": "sline.RequestLog.Shared",
   "SpecialFolders": [],
-  "Version": "25.1.0.1",
+  "Version": "26.2.0.0",
   "Widgets": [],
   "Versions": [
     {
